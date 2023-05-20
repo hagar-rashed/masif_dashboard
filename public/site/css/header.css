@@ -1,0 +1,361 @@
+.header {
+  position: relative;
+  position: relative;
+  z-index: 88;
+}
+
+.top-par {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.137);
+  z-index: 88;
+  align-items: center;
+  height: 100px;
+}
+
+.top-par {
+  transition: all linear 0.3s;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.header.active .top-par {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.top-par.active {
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  transform: translateY(0);
+}
+
+.logo {
+  max-width: 225px;
+}
+
+.element ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  flex-wrap: wrap;
+}
+.element ul li {
+  display: block;
+}
+.element ul li a {
+  font-family: "medium";
+  font-size: 17px;
+  height: 50px;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.icons-top-ber {
+  display: flex;
+
+  align-items: center;
+  justify-content: end;
+}
+
+.icons-top-ber ul {
+  width: 100%;
+  margin: 0px;
+  justify-content: end;
+  display: flex;
+  gap: 20px;
+}
+
+.icons-top-ber ul li {
+  display: block;
+}
+.icons-top-ber ul li a {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  position: relative;
+  padding-top: 3px;
+}
+
+.icons-top-ber ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/bg-icons.png);
+  top: 0;
+  background-position: center;
+  right: 0;
+  background-size: contain;
+  transition: all 0.3s linear;
+  background-repeat: no-repeat;
+}
+
+.element ul {
+  position: relative;
+}
+
+.element:hover .dot {
+  width: 7px;
+}
+.element ul .dot {
+  width: 0px;
+  height: 7px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(50%);
+  background-color: var(--color-button);
+  border-radius: 50%;
+  -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -o-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+}
+
+.element ul li:hover a {
+  color: var(--color-button);
+}
+
+.sub-header {
+  min-height: 700px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.text-sub-header {
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  padding-top: 100px;
+  display: flex;
+  margin-right: auto;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.text-sub-header h2,
+.text-sub-header h4 {
+  font-size: 30px;
+  width: 100%;
+  font-family: "medium";
+}
+
+.text-sub-header h4 {
+  color: var(--color-button);
+}
+
+.text-sub-header p {
+  color: #fff;
+  width: 100%;
+  text-align: justify;
+}
+
+.ctm-btn {
+  background-color: var(--color-main);
+  color: var(--color-white);
+  height: 45px;
+  display: inline-block;
+  padding: 8px 40px;
+  border-radius: 30px;
+  border: none;
+  font-family: "medium";
+  transition: all 0.3s linear;
+  min-width: 160px;
+}
+
+.header .ctm-btn {
+  background-color: var(--color-white);
+  color: var(--color-main);
+}
+
+.ctm-btn:hover {
+  background-color: var(--color-button);
+  color: var(--color-white);
+}
+.sub-header {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.sub-header > .row {
+  min-height: 700px;
+}
+
+.sub-header::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  pointer-events: none;
+  height: 100%;
+  background-image: url(../images/bg1.png);
+  background-position: center;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.img-sub-header {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url(../images/bg2.png);
+  mask-image: url(../images/bg2.png);
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  justify-content: end;
+  transform: translateX(-70px);
+  mask-size: 80%;
+  display: flex;
+  position: relative;
+  -webkit-mask-position: left;
+  mask-position: left;
+}
+.main-sub-header {
+  height: 100%;
+  position: relative;
+}
+.main-sub-header::after {
+  content: "";
+  width: 100%;
+  height: calc(100% - 100px);
+  z-index: -1;
+  background-color: var(--color-white);
+  opacity: 0.1;
+  aspect-ratio: 1 / 1;
+  top: 0;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  left: -20%;
+  animation: rotate1 45s linear infinite;
+  border-radius: 20px;
+}
+
+.main-sub-header::before {
+  content: "";
+  width: 100%;
+  height: calc(100% - 100px);
+  z-index: -1;
+  background-color: var(--color-white);
+  opacity: 0.1;
+  aspect-ratio: 1 / 1;
+  top: 0;
+  position: absolute;
+  top: 0;
+  margin: auto;
+  left: -30%;
+  animation: rotate2 45s linear infinite;
+  border-radius: 20px;
+}
+@keyframes rotate1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.img-sub-header img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.top-par .main-container {
+  position: relative;
+}
+
+.header-pages .sub-header {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+.navigation-header {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+.navigation-header a {
+  color: var(--color-white);
+}
+
+.navigation-header {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  gap: 10px;
+  align-items: center;
+}
+.navigation-header img {
+  width: 27px;
+  object-fit: contain;
+}
+.navigation-header a {
+  color: var(--color-button);
+  font-size: 22px;
+  font-family: "medium";
+}
+
+.loading {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  background-color:var(--color-main);
+  top: 0;
+  z-index: 888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.loading div {
+  width: 6rem;
+  height: 6rem;
+  background-color: transparent;
+  border-radius: 5rem;
+  border-left: 0.3rem solid var(--color-button);
+  position: relative;
+  transform: rotate(0deg);
+  animation: spinning 1s linear infinite;
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(-360deg);
+  }
+}

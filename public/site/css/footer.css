@@ -1,0 +1,59 @@
+.footer {
+  background-color: var(--color-main);
+  padding: 15px 0;
+}
+.element-footer ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.element-footer ul li {
+  display: block;
+}
+
+.element-footer ul li a {
+  color: var(--color-white);
+  transition: all .3s linear;
+}
+
+
+.element-footer ul li:hover a {
+  color: var(--color-button) ;
+} 
+.arrow-top {
+  border: 2px solid var(--color-button);
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 10px;
+  transform: rotate(45deg);
+
+  background-image: linear-gradient(to bottom, #1d8592, #004a53);
+}
+.arrow-top img {
+  width: 50%;
+  transform: rotate(-45deg);
+}
+
+.end-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  gap: 10px;
+}
+
+.end-page a {
+  color: var(--color-p);
+}
+
+.end-page a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.end-page a i {
+  color: red;
+}
