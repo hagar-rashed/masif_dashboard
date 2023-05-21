@@ -61,6 +61,16 @@
             </li>
         </ul>
 
+        {{-- customers --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.customers.index', 'admin.customers.create', 'admin.customers.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.customers.index') }}"><i
+                        class="fa-solid fa-user-tie"></i><span
+                        class="menu-title text-truncate">{{ __('models.customers') }}</span></a>
+            </li>
+        </ul>
+
         {{-- videos --}}
         {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

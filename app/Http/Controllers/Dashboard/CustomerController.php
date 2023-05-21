@@ -8,7 +8,7 @@ use App\Repositories\Contract\BrandRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PartnerController extends Controller
+class CustomerController extends Controller
 {
     protected $brandRepo;
 
@@ -24,9 +24,9 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = $this->brandRepo->getWhere([['type', 'partner']]);
+        $customers = $this->brandRepo->getWhere([['type', 'customer']]);
 
-        return view('dashboard.partners.index', compact('partners'));
+        return view('dashboard.customers.index', compact('customers'));
     }
 
     /**
@@ -36,7 +36,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        return view('dashboard.partners.create');
+        return view('dashboard.customers.create');
     }
 
     /**
@@ -50,15 +50,15 @@ class PartnerController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('partners');
+            $data['image'] = $request->file('image')->store('customers');
         }
 
-        $data['type'] = 'partner';
+        $data['type'] = 'customer';
 
-        $partner = $this->brandRepo->create($data);
+        $customer = $this->brandRepo->create($data);
 
-        if ($partner) {
-            return redirect()->route('admin.partners.index')->with('success', __('models.added_success'));
+        if ($customer) {
+            return redirect()->route('admin.customers.index')->with('success', __('models.added_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء الإضافة');
         }
@@ -83,10 +83,10 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        $partner = $this->brandRepo->findOne($id);
+        $customer = $this->brandRepo->findOne($id);
 
-        if ($partner) {
-            return view('dashboard.partners.edit', compact('partner'));
+        if ($customer) {
+            return view('dashboard.customers.edit', compact('customer'));
         } else {
             return view('dashboard.error');
         }
@@ -101,24 +101,24 @@ class PartnerController extends Controller
      */
     public function update(BrandRequest $request, $id)
     {
-        $partner = $this->brandRepo->findOne($id);
+        $customer = $this->brandRepo->findOne($id);
 
         $data = $request->except('_token', '_method');
 
         if ($request->hasFile('image')) {
 
-            Storage::delete($partner->image);
+            Storage::delete($customer->image);
 
-            $data['image'] = $request->file('image')->store('partners');
+            $data['image'] = $request->file('image')->store('customers');
         } else {
 
-            $data['image'] = $partner->image;
+            $data['image'] = $customer->image;
         }
 
-        $partner->update($data);
+        $customer->update($data);
 
-        if ($partner) {
-            return redirect()->route('admin.partners.index')->with('success', __('models.update_success'));
+        if ($customer) {
+            return redirect()->route('admin.customers.index')->with('success', __('models.update_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء التعديل');
         }
@@ -132,13 +132,13 @@ class PartnerController extends Controller
      */
     public function destroy(Request $request)
     {
-        $partner = $this->brandRepo->findOne($request->id);
+        $customer = $this->brandRepo->findOne($request->id);
 
-        if ($partner->image) {
-            Storage::delete($partner->image);
+        if ($customer->image) {
+            Storage::delete($customer->image);
         }
 
-        $partner->delete();
+        $customer->delete();
 
         return \response()->json([
             'message' => 'تم الحذف بنجاح',
