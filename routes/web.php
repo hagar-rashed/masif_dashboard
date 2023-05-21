@@ -57,7 +57,7 @@ Route::middleware('localization')->group(function () {
 
         Route::resource('about', 'AboutController');
 
-        // Route::resource('settings', 'SettingController');
+        Route::resource('services', 'ServiceController');
 
         Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
         Route::patch('settings/update', 'SettingController@update')->name('settings.update');

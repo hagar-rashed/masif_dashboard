@@ -122,6 +122,9 @@ return [
     'name_en'          => 'Name in english',
     'job_title_ar'     => 'Job Title in arabic',
     'job_title_en'     => 'Job Title in english',
+    'add_n_service'    => 'Add new Service',
+    'services'         => 'Services',
+
 
     // ==========================Settings========================== //
 

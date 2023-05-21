@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\ServiceRepository;
+        use App\Repositories\Contract\ServiceRepositoryInterface;
+
         use App\Repositories\Sql\TalkRepository;
         use App\Repositories\Contract\TalkRepositoryInterface;
 
@@ -44,6 +47,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
 
         $this->app->bind(TalkRepositoryInterface::class, TalkRepository::class);
 
