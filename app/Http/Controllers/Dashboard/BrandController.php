@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\ServiceRequest;
-use App\Repositories\Contract\ServiceRepositoryInterface;
+use App\Http\Requests\Dashboard\BrandRequest;
+use App\Repositories\Contract\BrandRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ServiceController extends Controller
+class BrandController extends Controller
 {
-    protected $serviceRepo;
+    protected $brandRepo;
 
-    public function __construct(ServiceRepositoryInterface $serviceRepo)
+    public function __construct(BrandRepositoryInterface $brandRepo)
     {
-        $this->serviceRepo = $serviceRepo;
+        $this->brandRepo = $brandRepo;
     }
 
     /**
@@ -24,9 +24,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = $this->serviceRepo->getAll();
+        $brands = $this->brandRepo->getWhere([['type', 'brand']]);
 
-        return view('dashboard.services.index', compact('services'));
+        return view('dashboard.brands.index', compact('brands'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('dashboard.services.create');
+        return view('dashboard.brands.create');
     }
 
     /**
@@ -45,18 +45,20 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(BrandRequest $request)
     {
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('services');
+            $data['image'] = $request->file('image')->store('brands');
         }
 
-        $service = $this->serviceRepo->create($data);
+        $data['type'] = 'brand';
 
-        if ($service) {
-            return redirect()->route('admin.services.index')->with('success', __('models.added_success'));
+        $brand = $this->brandRepo->create($data);
+
+        if ($brand) {
+            return redirect()->route('admin.brands.index')->with('success', __('models.added_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء الإضافة');
         }
@@ -81,10 +83,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $service = $this->serviceRepo->findOne($id);
+        $brand = $this->brandRepo->findOne($id);
 
-        if ($service) {
-            return view('dashboard.services.edit', compact('service'));
+        if ($brand) {
+            return view('dashboard.brands.edit', compact('brand'));
         } else {
             return view('dashboard.error');
         }
@@ -97,26 +99,26 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceRequest $request, $id)
+    public function update(BrandRequest $request, $id)
     {
-        $service = $this->serviceRepo->findOne($id);
+        $brand = $this->brandRepo->findOne($id);
 
         $data = $request->except('_token', '_method');
 
         if ($request->hasFile('image')) {
 
-            Storage::delete($service->image);
+            Storage::delete($brand->image);
 
-            $data['image'] = $request->file('image')->store('services');
+            $data['image'] = $request->file('image')->store('brands');
         } else {
 
-            $data['image'] = $service->image;
+            $data['image'] = $brand->image;
         }
 
-        $service->update($data);
+        $brand->update($data);
 
-        if ($service) {
-            return redirect()->route('admin.services.index')->with('success', __('models.update_success'));
+        if ($brand) {
+            return redirect()->route('admin.brands.index')->with('success', __('models.update_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء التعديل');
         }
@@ -130,13 +132,13 @@ class ServiceController extends Controller
      */
     public function destroy(Request $request)
     {
-        $service = $this->serviceRepo->findOne($request->id);
+        $brand = $this->brandRepo->findOne($request->id);
 
-        if ($service->image) {
-            Storage::delete($service->image);
+        if ($brand->image) {
+            Storage::delete($brand->image);
         }
 
-        $service->delete();
+        $brand->delete();
 
         return \response()->json([
             'message' => 'تم الحذف بنجاح',

@@ -35,9 +35,18 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.services.index', 'admin.services.create', 'admin.services.edit']) }}">
-                <a class="d-flex align-items-center" href="{{ route('admin.services.index') }}"><i
-                        class="fa-solid fa-bookmark"></i><span
+                <a class="d-flex align-items-center" href="{{ route('admin.services.index') }}"><i class="fa-solid fa-star"></i><span
                         class="menu-title text-truncate">{{ __('models.services') }}</span></a>
+            </li>
+        </ul>
+
+        {{-- brands --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.brands.index', 'admin.brands.create', 'admin.brands.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.brands.index') }}"><i
+                        class="fa-solid fa-tag"></i><span
+                        class="menu-title text-truncate">{{ __('models.brands') }}</span></a>
             </li>
         </ul>
 

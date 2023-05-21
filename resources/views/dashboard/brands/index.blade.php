@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.services'))
+@section('title', __('models.brands'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,7 +15,7 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.services.index') }}">{{ __('models.services') }}</a>
+                                            href="{{ route('admin.brands.index') }}">{{ __('models.brands') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -29,9 +29,8 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                     data-feather="grid"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{ route('admin.services.create') }}"><i class="mr-1"
-                                        data-feather="circle"></i><span
-                                        class="align-middle">{{ __('models.add_n_service') }}
+                                    href="{{ route('admin.brands.create') }}"><i class="mr-1"
+                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_brand') }}
                                     </span></a>
                             </div>
                         </div>
@@ -48,29 +47,31 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.title') }}</th>
-                                            <th>{{ __('models.desc') }}</th>
+                                            <th>{{ __('models.link') }}</th>
                                             <th>{{ __('models.image') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($services as $service)
+                                        @foreach ($brands as $brand)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $service->name }}</td>
-                                                <td>{{ Str::words($service->desc, 15) }}</td>
                                                 <td>
-                                                    <img src="{{ asset('storage/' . $service->image) }}"
-                                                        style="width: 80px; height: auto;">
+                                                    <a href="{{ $brand->link }}" target="_blank">
+                                                        <i class="fa-solid fa-link"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <img src="{{ asset('storage/' . $brand->image) }}"
+                                                        style="width: 100px; height: auto;">
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Second group">
-                                                        <a href="{{ route('admin.services.edit', $service->id) }}"
+                                                        <a href="{{ route('admin.brands.edit', $brand->id) }}"
                                                             class="btn btn-sm btn-primary"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('admin.services.destroy', $service->id) }}"
-                                                            data-id="{{ $service->id }}"
+                                                        <a href="{{ route('admin.brands.destroy', $brand->id) }}"
+                                                            data-id="{{ $brand->id }}"
                                                             class="btn btn-sm btn-danger item-delete"><i
                                                                 class="fa-solid fa-trash-can"></i></a>
                                                     </div>

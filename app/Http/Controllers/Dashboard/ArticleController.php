@@ -103,7 +103,7 @@ class ArticleController extends Controller
     {
         $article = $this->articleRepository->findOne($id);
 
-        $data = $request->except('_token', '_method', 'seo_desc_ar', 'seo_desc_en');
+        $data = $request->except('_token', '_method');
 
         if ($request->hasFile('image')) {
 

@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\BrandRepository;
+        use App\Repositories\Contract\BrandRepositoryInterface;
+
         use App\Repositories\Sql\ServiceRepository;
         use App\Repositories\Contract\ServiceRepositoryInterface;
 
@@ -47,6 +50,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(BrandRepositoryInterface::class, BrandRepository::class);
 
         $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
 

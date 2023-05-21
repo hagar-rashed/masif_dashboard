@@ -124,6 +124,10 @@ return [
     'job_title_en'     => 'Job Title in english',
     'add_n_service'    => 'Add new Service',
     'services'         => 'Services',
+    'brands'           => 'Brands',
+    'add_n_brand'      => 'Add new Brand',
+    'edit_brand'       => 'Edit Brand',
+    'link'             => 'Link',
 
 
     // ==========================Settings========================== //

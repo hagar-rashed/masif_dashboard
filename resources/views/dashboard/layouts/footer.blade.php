@@ -9,14 +9,6 @@
                 {{ __('models.all_rights') . ' ' . date('Y') . ' ' . __('models.reserved_to') . ' ' . 'New Cairo' }}
             </span>
         </span>
-
-        {{-- <span class="float-md-right fs-5 d-none d-md-block">
-            <a href="https://jaadara.com/">
-                {{ __('models.made_with') }}
-                <i data-feather="heart"></i>
-                {{ __('models.jadara') }}
-            </a>
-        </span> --}}
     </p>
 </footer>
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
