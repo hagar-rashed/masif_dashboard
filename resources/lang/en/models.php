@@ -5,7 +5,7 @@ return [
     'about'                     => 'About the Author',
     'books'                     => 'Books and literature',
     'videos'                    => 'Videos',
-    'blog'                      => 'Blog',
+    'news'                      => 'News',
     'contact_us'                => 'Contact Us',
     'about_the'                 => 'About',
     'lang'                      => 'Language',
@@ -127,6 +127,12 @@ return [
     'brands'           => 'Brands',
     'add_n_brand'      => 'Add new Brand',
     'edit_brand'       => 'Edit Brand',
+    'partners'         => 'Partners',
+    'add_n_partner'    => 'Add new Partner',
+    'edit_partner'     => 'Edit Partner',
+    'customers'        => 'Customers',
+    'add_n_customer'   => 'Add new Customer',
+    'edit_customer'    => 'Edit Customer',
     'link'             => 'Link',
 
 

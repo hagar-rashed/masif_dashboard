@@ -126,8 +126,14 @@ return [
     'add_n_service'    => 'إضافة خدمة جديدة',
     'services'         => 'الخدمات',
     'brands'           => 'الماركات',
-    'add_n_brand'      => 'إضافة ماركة  جديدة',
-    'edit_brand'      => 'تعديل الماركة',
+    'add_n_brand'      => 'إضافة ماركة جديدة',
+    'edit_brand'       => 'تعديل الماركة',
+    'partners'         => 'الشركاء',
+    'add_n_partner'    => 'إضافة شريك جديد',
+    'edit_partner'     => 'تعديل الشريك',
+    'customers'        => 'العملاء',
+    'add_n_customer'   => 'إضافة عميل جديد',
+    'edit_customer'    => 'تعديل العميل',
     'link'             => 'الرابط',
 
 
