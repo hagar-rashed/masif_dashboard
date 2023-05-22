@@ -140,24 +140,28 @@ return [
 
     // ==========================Settings========================== //
 
-    'logo'        => 'Logo',
-    'logo_footer' => 'Footer Logo',
-    'favicon'     => 'Favicon',
-    'main_video'  => 'Main Video',
-    'about_ar'    => 'About Us (in Arabic)',
-    'about_en'    => 'About Us (in English)',
-    'vision_ar'   => 'Vision (in Arabic)',
-    'vision_en'   => 'Vision (in English)',
-    'mission_ar'  => 'Mission (in Arabic)',
-    'mission_en'  => 'Mission (in English)',
-    'address'     => 'Address',
-    'phone_1'     => 'Phone Number',
-    'phone_2'     => 'Alternate Phone Number',
-    'whatsapp'    => 'WhatsApp',
-    'instagram'   => 'Instagram',
-    'facebook'    => 'Facebook',
-    'twitter'     => 'Twitter'
-
-
+    'logo'          => 'Logo',
+    'logo_footer'   => 'Footer Logo',
+    'favicon'       => 'Favicon',
+    'main_video'    => 'Main Video',
+    'about_ar'      => 'About Us (in Arabic)',
+    'about_en'      => 'About Us (in English)',
+    'vision_ar'     => 'Vision (in Arabic)',
+    'vision_en'     => 'Vision (in English)',
+    'mission_ar'    => 'Mission (in Arabic)',
+    'mission_en'    => 'Mission (in English)',
+    'address'       => 'Address',
+    'phone_1'       => 'Phone Number',
+    'phone_2'       => 'Alternate Phone Number',
+    'whatsapp'      => 'WhatsApp',
+    'instagram'     => 'Instagram',
+    'facebook'      => 'Facebook',
+    'twitter'       => 'Twitter',
+    'what_we_do_ar' => 'What We Do (in Arabic)',
+    'what_we_do_en' => 'What We Do (in English)',
+    'how_we_do_ar'  => 'How We Do It (in Arabic)',
+    'how_we_do_en'  => 'How We Do It (in English)',
+    'why_we_do_ar'  => 'Why We Do It (in Arabic)',
+    'why_we_do_en'  => 'Why We Do It (in English)'
 
 ];

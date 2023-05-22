@@ -70,6 +70,42 @@ class SettingTableSeeder extends Seeder
                 'value'    => 'Construction Cairo New Group was established in 2014 and operates in the fields of light current (data networks, structured cabling systems, surveillance cameras PBXs, IPTV, fire alarm systems, intercom broadcasting systems, entry and exit control systems, RMS, BMS, and metal detectors) Our capabilities and skills allow us to design / Consulting and project management. Also, our good relationship with major suppliers allows us to provide the price and products to achieve the success of the project.. We provide our services to government agencies, contracting companies, factories, administrative buildings, shopping centers, hotels, supermarkets, communities and residential buildings.'
             ],
             [
+                'key'      => 'what_we_do_ar',
+                'neckname' => 'ماذا نفعل بالعربية',
+                'type'     => 'textarea',
+                'value'    => '"تكامل النظام" يوفر احتياجات العمالء من خالل نقل الصندوق من الموردين إلى العمالء النهائيين بأقل سعر للمنتجات مع تركيب عالي الجودة. نحن ن قدم جميع احتياجات السوق مع حلول مخصصة حسب احتياجات العميل.'
+            ],
+            [
+                'key'      => 'what_we_do_en',
+                'neckname' => 'ماذا نفعل بالانجليزية',
+                'type'     => 'textarea',
+                'value'    => '“System Integration” provides customer needs by transferring the box from suppliers to end customers at the lowest product price with high quality installation. We cater to all market needs with customized solutions as per client needs.'
+            ],
+            [
+                'key'      => 'how_we_do_ar',
+                'neckname' => 'كيف نفعل ذلك بالعربية',
+                'type'     => 'textarea',
+                'value'    => '"تكامل النظام" يوفر احتياجات العمالء من خالل نقل الصندوق من الموردين إلى العمالء النهائيين بأقل سعر للمنتجات مع تركيب عالي الجودة. نحن ن قدم جميع احتياجات السوق مع حلول مخصصة حسب احتياجات العميل.'
+            ],
+            [
+                'key'      => 'how_we_do_en',
+                'neckname' => 'كيف نفعل ذلك بالانجليزية',
+                'type'     => 'textarea',
+                'value'    => '“System Integration” provides customer needs by transferring the box from suppliers to end customers at the lowest product price with high quality installation. We cater to all market needs with customized solutions as per client needs.'
+            ],
+            [
+                'key'      => 'why_we_do_ar',
+                'neckname' => 'لماذا نفعل ذلك بالعربية',
+                'type'     => 'textarea',
+                'value'    => '"تكامل النظام" يوفر احتياجات العمالء من خالل نقل الصندوق من الموردين إلى العمالء النهائيين بأقل سعر للمنتجات مع تركيب عالي الجودة. نحن ن قدم جميع احتياجات السوق مع حلول مخصصة حسب احتياجات العميل.'
+            ],
+            [
+                'key'      => 'why_we_do_en',
+                'neckname' => 'لماذا نفعل ذلك بالانجليزية',
+                'type'     => 'textarea',
+                'value'    => '“System Integration” provides customer needs by transferring the box from suppliers to end customers at the lowest product price with high quality installation. We cater to all market needs with customized solutions as per client needs.'
+            ],
+            [
                 'key'      => 'vision_ar',
                 'neckname' => 'الرؤية بالعربية',
                 'type'     => 'textarea',

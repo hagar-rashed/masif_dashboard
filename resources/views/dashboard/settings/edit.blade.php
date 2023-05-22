@@ -101,7 +101,7 @@
                                                         <div class="form-group">
                                                             <label class="form-label"
                                                                 for="title">{{ __('models.' . $setting->key) }} </label>
-                                                            <textarea name="{{ $setting->key }}" class="form-control" dir="{{ $ext[1] == 'ar' ? 'rtl' : 'ltr' }}"
+                                                            <textarea name="{{ $setting->key }}" class="form-control" dir="{{ end($ext) == 'ar' ? 'rtl' : 'ltr' }}"
                                                                 name="{{ $setting->key }}" id="{{ $setting->key }}" cols="30" rows="10" require>{{ $setting->value }}</textarea>
                                                             <div class="">
                                                                 @if ($errors->has('title'))
