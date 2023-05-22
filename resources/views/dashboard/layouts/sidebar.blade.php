@@ -41,6 +41,16 @@
             </li>
         </ul>
 
+        {{-- solutions --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.solutions.index', 'admin.solutions.create', 'admin.solutions.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.solutions.index') }}"><i
+                        class="fa-solid fa-lightbulb"></i><span
+                        class="menu-title text-truncate">{{ __('models.solutions') }}</span></a>
+            </li>
+        </ul>
+
         {{-- brands --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

@@ -125,6 +125,8 @@ return [
     'job_title_en'     => 'المسمى الوظيفة بالانجليزية',
     'add_n_service'    => 'إضافة خدمة جديدة',
     'services'         => 'الخدمات',
+    'add_n_solution'   => 'إضافة حل جديد',
+    'solutions'        => 'الحلول',
     'brands'           => 'الماركات',
     'add_n_brand'      => 'إضافة ماركة جديدة',
     'edit_brand'       => 'تعديل الماركة',
