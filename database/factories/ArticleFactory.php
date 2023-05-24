@@ -15,11 +15,12 @@ class ArticleFactory extends Factory
     {
 
         return [
-            'title_ar' => $this->faker->name,
-            'title_en' => $this->faker->name,
-            'desc_ar'  => $this->faker->text,
-            'desc_en'  => $this->faker->text,
-            'image'    => $this->faker->imageUrl
+            'title_ar'    => $this->faker->name,
+            'title_en'    => $this->faker->name,
+            'desc_ar'     => $this->faker->text,
+            'desc_en'     => $this->faker->text,
+            'image'       => $this->faker->imageUrl,
+            'category_id' => 1,
         ];
     }
 }

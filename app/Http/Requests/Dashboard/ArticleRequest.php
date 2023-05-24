@@ -35,21 +35,23 @@ class ArticleRequest extends FormRequest
         switch (request()->method()) {
             case 'POST':
                 return [
-                    'title_ar'     => 'required|string|max:255',
-                    'title_en'     => 'required|string|max:255',
-                    'desc_ar'      => 'required',
-                    'desc_en'      => 'required',
-                    'image'        => 'required|image|mimes:jpeg,png,jpg',
+                    'title_ar'    => 'required|string|max:255',
+                    'title_en'    => 'required|string|max:255',
+                    'desc_ar'     => 'required',
+                    'desc_en'     => 'required',
+                    'category_id' => 'required',
+                    'image'       => 'required|image|mimes:jpeg,png,jpg',
                 ];
                 break;
 
             case 'PATCH':
                 return [
-                    'title_ar'     => 'required|string|max:255',
-                    'title_en'     => 'required|string|max:255',
-                    'desc_ar'      => 'required',
-                    'desc_en'      => 'required',
-                    'image'        => 'nullable|image|mimes:jpeg,png,jpg',
+                    'title_ar'    => 'required|string|max:255',
+                    'title_en'    => 'required|string|max:255',
+                    'desc_ar'     => 'required',
+                    'desc_en'     => 'required',
+                    'category_id' => 'required',
+                    'image'       => 'nullable|image|mimes:jpeg,png,jpg',
                 ];
                 break;
         }

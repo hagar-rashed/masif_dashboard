@@ -49,6 +49,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>{{ __('models.title') }}</th>
+                                            <th>{{ __('models.category') }}</th>
                                             <th>{{ __('models.desc') }}</th>
                                             <th>{{ __('models.image') }}</th>
                                             <th>{{ __('models.actions') }}</th>
@@ -59,6 +60,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $article->title }}</td>
+                                                <td>{{ $article->category->name }}</td>
                                                 <td>{{ Str::words($article->desc, 15) }}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $article->image) }}"

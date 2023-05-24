@@ -136,6 +136,8 @@ return [
     'add_n_customer'   => 'Add new Customer',
     'edit_customer'    => 'Edit Customer',
     'link'             => 'Link',
+    'category'         => 'Category',
+    'select'           => 'Select',
 
 
     // ==========================Settings========================== //

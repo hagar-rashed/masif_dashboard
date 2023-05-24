@@ -42,12 +42,12 @@
                                         @method('PATCH')
                                         <div class="row">
 
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile"
-                                                        name="image">
+                                                    <input class="form-control image" accept="image/png, image/jpeg"
+                                                        type="file" id="formFile" name="image">
                                                     @error('image')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -55,8 +55,32 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group prev">
-                                                    <img src="{{ asset('storage/' . $article->image) }}" style="width: 100px"
-                                                        class="img-thumbnail preview-formFile" alt="">
+                                                    <img src="{{ asset('storage/' . $article->image) }}"
+                                                        style="width: 100px" class="img-thumbnail preview-formFile"
+                                                        alt="">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="category_id">{{ __('models.category') }}</label>
+
+                                                    <select class="form-control" name="category_id" id="category_id">
+                                                        <option value="">{{ __('models.select') }}</option>
+
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->id }}"
+                                                                {{ old('category_id', $article->category_id) == $category->id ? 'selected' : '' }}>
+                                                                {{ $category->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    @error('category_id')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
@@ -64,7 +88,8 @@
                                                 <div class="form-group">
                                                     <label for="title_ar">{{ __('models.title_ar') }}</label>
                                                     <input type="text" id="title_ar" class="form-control"
-                                                        name="title_ar" value="{{ old('title_ar', $article->title_ar) }}" />
+                                                        name="title_ar"
+                                                        value="{{ old('title_ar', $article->title_ar) }}" />
                                                     @error('title_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -77,7 +102,8 @@
                                                 <div class="form-group">
                                                     <label for="title_en">{{ __('models.title_en') }}</label>
                                                     <input type="text" id="title_en" class="form-control"
-                                                        name="title_en" value="{{ old('title_en', $article->title_en) }}" />
+                                                        name="title_en"
+                                                        value="{{ old('title_en', $article->title_en) }}" />
                                                     @error('title_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>

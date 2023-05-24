@@ -41,12 +41,12 @@
                                         @csrf
                                         <div class="row">
 
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile"
-                                                        name="image">
+                                                    <input class="form-control image" accept="image/png, image/jpeg"
+                                                        type="file" id="formFile" name="image">
                                                     @error('image')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -56,6 +56,29 @@
                                                 <div class="form-group prev">
                                                     <img src="" style="width: 100px"
                                                         class="img-thumbnail preview-formFile" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="category_id">{{ __('models.category') }}</label>
+
+                                                    <select class="form-control" name="category_id" id="category_id">
+                                                        <option value="">{{ __('models.select') }}</option>
+
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->id }}"
+                                                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                                {{ $category->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    @error('category_id')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 

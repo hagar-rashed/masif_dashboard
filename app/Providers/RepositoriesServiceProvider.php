@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\CategoryRepository;
+        use App\Repositories\Contract\CategoryRepositoryInterface;
+
         use App\Repositories\Sql\SolutionRepository;
         use App\Repositories\Contract\SolutionRepositoryInterface;
 
@@ -53,6 +56,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
 
         $this->app->bind(SolutionRepositoryInterface::class, SolutionRepository::class);
 

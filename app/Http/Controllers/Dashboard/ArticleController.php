@@ -8,15 +8,18 @@ use App\Repositories\Contract\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
 use Alkoumi\LaravelHijriDate\Hijri;
 use App\Jobs\NotifyEmailJob;
+use App\Repositories\Contract\CategoryRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
     protected $articleRepository;
+    protected $categoryRepository;
 
-    public function __construct(ArticleRepositoryInterface $articleRepository)
+    public function __construct(ArticleRepositoryInterface $articleRepository, CategoryRepositoryInterface $categoryRepository)
     {
-        $this->articleRepository = $articleRepository;
+        $this->articleRepository  = $articleRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -26,7 +29,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = $this->articleRepository->getAll();
+        $articles = $this->articleRepository->getWith(['category']);
 
         return view('dashboard.articles.index', compact('articles'));
     }
@@ -38,7 +41,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('dashboard.articles.create');
+
+        $categories = $this->categoryRepository->getAll();
+
+        return view('dashboard.articles.create', compact('categories'));
     }
 
     /**
@@ -85,8 +91,10 @@ class ArticleController extends Controller
     {
         $article = $this->articleRepository->findOne($id);
 
+        $categories = $this->categoryRepository->getAll();
+
         if ($article) {
-            return view('dashboard.articles.edit', compact('article'));
+            return view('dashboard.articles.edit', compact('article', 'categories'));
         } else {
             return view('dashboard.error');
         }
