@@ -21,6 +21,16 @@
             </li>
         </ul>
 
+        {{-- categories --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.categories.index', 'admin.categories.create', 'admin.categories.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.categories.index') }}"><i
+                        class="fa-solid fa-bookmark"></i><span
+                        class="menu-title text-truncate">{{ __('models.categories') }}</span></a>
+            </li>
+        </ul>
+
         {{-- articles --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

@@ -47,6 +47,8 @@ Route::middleware('localization')->group(function () {
 
         Route::resource('books', 'BookController');
 
+        Route::resource('categories', 'CategoryController');
+
         Route::resource('articles', 'ArticleController');
 
         Route::resource('scraps', 'ScrapController');
