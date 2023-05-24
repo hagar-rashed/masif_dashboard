@@ -30,7 +30,8 @@
                                     data-feather="grid"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                     href="{{ route('admin.customers.create') }}"><i class="mr-1"
-                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_customer') }}
+                                        data-feather="circle"></i><span
+                                        class="align-middle">{{ __('models.add_n_customer') }}
                                     </span></a>
                             </div>
                         </div>
@@ -47,7 +48,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.link') }}</th>
+                                            <th>{{ __('models.name') }}</th>
+                                            <th>{{ __('models.desc') }}</th>
                                             <th>{{ __('models.image') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
@@ -56,11 +58,8 @@
                                         @foreach ($customers as $customer)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>
-                                                    <a href="{{ $customer->link }}" target="_blank">
-                                                        <i class="fa-solid fa-link"></i>
-                                                    </a>
-                                                </td>
+                                                <td>{{ $customer->name ?? '-' }}</td>
+                                                <td>{{ $customer->desc ?? '-' }}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $customer->image) }}"
                                                         style="width: 100px; height: auto;">

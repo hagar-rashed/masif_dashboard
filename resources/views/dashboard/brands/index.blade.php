@@ -47,7 +47,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.link') }}</th>
+                                            <th>{{ __('models.name') }}</th>
+                                            <th>{{ __('models.desc') }}</th>
                                             <th>{{ __('models.image') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
@@ -56,11 +57,8 @@
                                         @foreach ($brands as $brand)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>
-                                                    <a href="{{ $brand->link }}" target="_blank">
-                                                        <i class="fa-solid fa-link"></i>
-                                                    </a>
-                                                </td>
+                                                <td>{{ $brand->name ?? '-' }}</td>
+                                                <td>{{ $brand->desc ?? '-' }}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $brand->image) }}"
                                                         style="width: 100px; height: auto;">

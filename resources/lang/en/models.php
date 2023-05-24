@@ -141,6 +141,7 @@ return [
     'link'             => 'Link',
     'category'         => 'Category',
     'select'           => 'Select',
+    'media'            => 'Media',
 
 
     // ==========================Settings========================== //

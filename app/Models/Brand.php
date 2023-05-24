@@ -9,5 +9,15 @@ class Brand extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image', 'link', 'type'];
+    protected $fillable = ['image', 'link', 'type', 'name_ar', 'name_en', 'desc_ar', 'desc_en', 'media'];
+
+    public function getNameAttribute()
+    {
+        return $this->{'name_' . app()->getLocale()};
+    }
+
+    public function getDescAttribute()
+    {
+        return $this->{'desc_' . app()->getLocale()};
+    }
 }

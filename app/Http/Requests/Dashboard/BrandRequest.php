@@ -26,15 +26,25 @@ class BrandRequest extends FormRequest
         switch (request()->method()) {
             case 'PATCH':
                 return [
-                    'image' => 'nullable|image|mimes:png,jpg',
-                    'link'  => 'required|url',
+                    'name_ar' => 'nullable|string|max:255',
+                    'name_en' => 'nullable|string|max:255',
+                    'desc_ar' => 'nullable',
+                    'desc_en' => 'nullable',
+                    'media'   => 'nullable|mimes:png,jpg,mp4',
+                    'image'   => 'nullable|image|mimes:png,jpg',
+                    // 'link'  => 'required|url',
                 ];
                 break;
 
             default:
                 return [
-                    'image' => 'required|image|mimes:png,jpg',
-                    'link'  => 'required|url',
+                    'name_ar' => 'nullable|string|max:255',
+                    'name_en' => 'nullable|string|max:255',
+                    'desc_ar' => 'nullable',
+                    'desc_en' => 'nullable',
+                    'media'   => 'required|mimes:png,jpg,mp4',
+                    'image'   => 'required|image|mimes:png,jpg',
+                    // 'link'  => 'required|url',
                 ];
                 break;
         }
