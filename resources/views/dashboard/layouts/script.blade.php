@@ -1,4 +1,5 @@
 <!-- BEGIN: Vendor JS-->
+
 <script src="{{ asset('dashboard/app-assets/vendors/js/vendors.min.js') }}"></script>
 <!-- BEGIN Vendor JS-->
 
@@ -6,6 +7,8 @@
 <script src="{{ asset('dashboard/app-assets/js/core/app-menu.js') }}"></script>
 <script src="{{ asset('dashboard/app-assets/js/core/app.js') }}"></script>
 <!-- END: Theme JS-->
+
+
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{ asset('dashboard/app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
@@ -24,7 +27,7 @@
 <script src="{{ asset('dashboard/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js') }}"></script>
 <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Page JS-->

@@ -111,7 +111,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_ar">{{ __('models.desc_ar') }}</label>
-                                                    <textarea class="form-control" name="desc_ar" rows="10">{{ old('desc_ar') }}</textarea>
+                                                    <textarea class="form-control summernote" name="desc_ar" id="desc_ar" rows="10">{{ old('desc_ar') }}</textarea>
                                                     @error('desc_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -123,7 +123,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_en">{{ __('models.desc_en') }}</label>
-                                                    <textarea class="form-control" name="desc_en" rows="10">{{ old('desc_en') }}</textarea>
+                                                    <textarea class="form-control summernote" name="desc_en" id="desc_en" rows="10">{{ old('desc_en') }}</textarea>
                                                     @error('desc_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -152,5 +152,16 @@
     @push('js')
         <script src="{{ asset('dashboard/assets/js/custom/validation/articleForm.js') }}"></script>
         <script src="{{ asset('dashboard/app-assets/js/custom/preview-image.js') }}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#desc_ar').summernote({
+                    lang: 'ar-Eg',
+                });
+                $('#desc_en').summernote({
+                    lang: 'en-US'
+                });
+            });
+        </script>
     @endpush
 @endsection
