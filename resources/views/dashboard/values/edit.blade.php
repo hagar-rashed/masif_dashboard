@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', $service->name)
+@section('title', $value->name)
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,9 +15,9 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.services.index') }}">{{ __('models.services') }}</a>
+                                            href="{{ route('admin.values.index') }}">{{ __('models.values') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">{{ $service->name }}</a>
+                                    <li class="breadcrumb-item"><a href="#">{{ $value->name }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -32,11 +32,11 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2 class="card-title">{{ $service->name }}</h2>
+                                    <h2 class="card-title">{{ $value->name }}</h2>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form form-vertical" id="updateserviceForm"
-                                        action="{{ route('admin.services.update', $service->id) }}" method="POST"
+                                    <form class="form form-vertical" id="updatevalueForm"
+                                        action="{{ route('admin.values.update', $value->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PATCH')
@@ -46,8 +46,8 @@
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile"
-                                                        name="image">
+                                                    <input class="form-control image" accept="image/png, image/jpeg"
+                                                        type="file" id="formFile" name="image">
                                                     @error('image')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -55,7 +55,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group prev">
-                                                    <img src="{{ asset('storage/' . $service->image) }}" style="width: 100px"
+                                                    <img src="{{ asset('storage/' . $value->image) }}" style="width: 100px"
                                                         class="img-thumbnail preview-formFile" alt="">
                                                 </div>
                                             </div>
@@ -63,8 +63,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="name_ar">{{ __('models.title_ar') }}</label>
-                                                    <input type="text" id="name_ar" class="form-control"
-                                                        name="name_ar" value="{{ old('name_ar', $service->name_ar) }}" />
+                                                    <input type="text" id="name_ar" class="form-control" name="name_ar"
+                                                        value="{{ old('name_ar', $value->name_ar) }}" />
                                                     @error('name_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -76,8 +76,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="name_en">{{ __('models.title_en') }}</label>
-                                                    <input type="text" id="name_en" class="form-control"
-                                                        name="name_en" value="{{ old('name_en', $service->name_en) }}" />
+                                                    <input type="text" id="name_en" class="form-control" name="name_en"
+                                                        value="{{ old('name_en', $value->name_en) }}" />
                                                     @error('name_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -89,7 +89,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_ar">{{ __('models.desc_ar') }}</label>
-                                                    <textarea class="form-control" name="desc_ar" dir="rtl" rows="10">{{ old('desc_ar', $service->desc_ar) }}</textarea>
+                                                    <textarea class="form-control" name="desc_ar" dir="rtl" rows="10">{{ old('desc_ar', $value->desc_ar) }}</textarea>
                                                     @error('desc_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -101,7 +101,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_en">{{ __('models.desc_en') }}</label>
-                                                    <textarea class="form-control" name="desc_en" dir="ltr" rows="10">{{ old('desc_en', $service->desc_en) }}</textarea>
+                                                    <textarea class="form-control" name="desc_en" dir="ltr" rows="10">{{ old('desc_en', $value->desc_en) }}</textarea>
                                                     @error('desc_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -127,7 +127,7 @@
     <!-- END: Content-->
 
     @push('js')
-        <script src="{{ asset('dashboard/assets/js/custom/validation/serviceForm.js') }}"></script>
+        <script src="{{ asset('dashboard/assets/js/custom/validation/valueForm.js') }}"></script>
         <script src="{{ asset('dashboard/app-assets/js/custom/preview-image.js') }}"></script>
     @endpush
 @endsection

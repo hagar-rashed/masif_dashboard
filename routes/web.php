@@ -61,6 +61,8 @@ Route::middleware('localization')->group(function () {
 
         Route::resource('services', 'ServiceController');
 
+        Route::resource('values', 'ValueController');
+
         Route::resource('solutions', 'SolutionController');
 
         Route::resource('brands', 'BrandController');

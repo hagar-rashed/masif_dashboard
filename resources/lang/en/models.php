@@ -148,6 +148,9 @@ return [
     'sectors'          => 'Sectors',
     'add_n_sector'     => 'Add new Sector',
     'edit_sector'      => 'Edit Sector',
+    'values'           => 'Our Values',
+    'add_n_value'      => 'Add new Value',
+    'edit_value'       => 'Edit Value',
 
 
     // ==========================Settings========================== //

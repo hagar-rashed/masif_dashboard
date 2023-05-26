@@ -149,6 +149,9 @@ return [
     'sectors'          => 'القطاعات',
     'add_n_sector'     => 'إضافة قطاع جديد',
     'edit_sector'      => 'تعديل القطاع',
+    'values'           => 'قيمنا',
+    'add_n_value'      => 'إضافة قيم جديدة',
+    'edit_value'       => 'تعديل القيم',
 
 
 

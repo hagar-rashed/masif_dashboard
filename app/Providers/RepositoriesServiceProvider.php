@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\ValueRepository;
+        use App\Repositories\Contract\ValueRepositoryInterface;
+
         use App\Repositories\Sql\SectorRepository;
         use App\Repositories\Contract\SectorRepositoryInterface;
 
@@ -62,6 +65,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(ValueRepositoryInterface::class, ValueRepository::class);
 
         $this->app->bind(SectorRepositoryInterface::class, SectorRepository::class);
 

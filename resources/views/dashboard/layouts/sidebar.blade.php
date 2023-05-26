@@ -51,6 +51,16 @@
             </li>
         </ul>
 
+        {{-- values --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.values.index', 'admin.values.create', 'admin.values.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.values.index') }}"><i
+                        class="fa-solid fa-hand-holding-heart"></i><span
+                        class="menu-title text-truncate">{{ __('models.values') }}</span></a>
+            </li>
+        </ul>
+
         {{-- solutions --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

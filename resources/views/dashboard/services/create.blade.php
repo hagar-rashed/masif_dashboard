@@ -62,8 +62,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="name_ar">{{ __('models.title_ar') }}</label>
-                                                    <input type="text" id="name_ar" class="form-control"
-                                                        name="name_ar" value="{{ old('name_ar') }}" />
+                                                    <input type="text" id="name_ar" class="form-control" name="name_ar"
+                                                        value="{{ old('name_ar') }}" />
                                                     @error('name_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -75,8 +75,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="name_en">{{ __('models.title_en') }}</label>
-                                                    <input type="text" id="name_en" class="form-control"
-                                                        name="name_en" value="{{ old('name_en') }}" />
+                                                    <input type="text" id="name_en" class="form-control" name="name_en"
+                                                        value="{{ old('name_en') }}" />
                                                     @error('name_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -88,7 +88,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_ar">{{ __('models.desc_ar') }}</label>
-                                                    <textarea class="form-control" name="desc_ar" rows="10">{{ old('desc_ar') }}</textarea>
+                                                    <textarea class="form-control" name="desc_ar" dir="rtl" rows="10">{{ old('desc_ar') }}</textarea>
                                                     @error('desc_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -100,7 +100,7 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_en">{{ __('models.desc_en') }}</label>
-                                                    <textarea class="form-control" name="desc_en" rows="10">{{ old('desc_en') }}</textarea>
+                                                    <textarea class="form-control" name="desc_en" dir="ltr" rows="10">{{ old('desc_en') }}</textarea>
                                                     @error('desc_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
