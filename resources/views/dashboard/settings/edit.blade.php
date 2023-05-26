@@ -58,7 +58,7 @@
                                                                 for="price_from">{{ __('models.' . $setting->key) }}</label>
                                                             <input type="file" id="{{ $setting->key }}"
                                                                 name="{{ $setting->key }}"
-                                                                accept="image/png, image/jpeg, image/jpg"
+                                                                accept="image/png, image/jpeg, image/jpg, {{ $setting->key == 'main_video' ? 'video/mp4' : '' }}"
                                                                 class="form-control image" aria-label="Name"
                                                                 aria-describedby="basic-addon-name" require />
                                                             <div class="">
@@ -70,12 +70,14 @@
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        <div class="form-group prev">
-                                                            <img src="{{ url('storage/' . $setting->value) }}"
-                                                                style="width: 100px"
-                                                                class="img-thumbnail preview-{{ $setting->key }}"
-                                                                alt="">
-                                                        </div>
+                                                        @if ($setting->key != 'main_video')
+                                                            <div class="form-group prev">
+                                                                <img src="{{ url('storage/' . $setting->value) }}"
+                                                                    style="width: 100px"
+                                                                    class="img-thumbnail preview-{{ $setting->key }}"
+                                                                    alt="">
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 @elseif($setting->type == 'text')
                                                     <div class="col-md-6">

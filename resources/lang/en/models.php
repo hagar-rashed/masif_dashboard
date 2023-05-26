@@ -20,7 +20,7 @@ return [
     'made_with'                 => 'Made With',
     'reserved_to'               => 'reserved to',
     'all_rights'                => 'All rights ©',
-    'about_him'                 => 'About Him',
+    'about_us'                  => 'About Us',
     'his_life'                  => 'His Life',
     'his_activities'            => 'His Activities',
     'important_work'            => 'One of his most important works',
@@ -151,6 +151,14 @@ return [
     'values'           => 'Our Values',
     'add_n_value'      => 'Add new Value',
     'edit_value'       => 'Edit Value',
+    'read_more'        => 'Read more',
+    'vision'           => 'Vision',
+    'mission'          => 'Mission',
+    'goals'            => 'Goals',
+    'our_services'     => 'Our Services',
+    'our_news'         => 'Our News',
+    'clients'          => 'Clients',
+
 
 
     // ==========================Settings========================== //

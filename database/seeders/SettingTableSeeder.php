@@ -130,6 +130,18 @@ class SettingTableSeeder extends Seeder
                 'value'    => 'To provide appropriately branded products with superior service quality, to ensure the satisfaction of our customers and partners.'
             ],
             [
+                'key'      => 'goal_ar',
+                'neckname' => 'المهمة بالعربية',
+                'type'     => 'textarea',
+                'value'    => 'تقديم منتجات ذات علامة تجارية مناسبة مع جودة الخدمة الفائقة ، لضمان رضا عمالئنا وشركائنا.'
+            ],
+            [
+                'key'      => 'goal_en',
+                'neckname' => 'المهمة بالانجليزية',
+                'type'     => 'textarea',
+                'value'    => 'To provide appropriately branded products with superior service quality, to ensure the satisfaction of our customers and partners.'
+            ],
+            [
                 'key'      => 'address',
                 'neckname' => 'العنوان',
                 'type'     => 'text',

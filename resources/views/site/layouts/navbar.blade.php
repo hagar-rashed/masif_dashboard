@@ -1,56 +1,43 @@
-<!-- start header =====
-        ============ -->
-<header class="header active {{ Route::currentRouteName() != 'site.home' ? 'header-pages' : '' }}" id="scroll-1">
-
-    <!-- start top-par -->
+<header class="header active">
     <div class="top-par">
         <div class="main-container">
             <div class="row align-items-center">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2">
                     <div class="logo">
                         <a href="{{ route('site.home') }}">
                             <img src="{{ asset('storage/' . getSetting('logo')) }}" alt="">
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="element">
                         <ul>
-                            <li><a href="{{ route('site.home') }}">{{ __('models.home') }} </a></li>
-                            <li><a href="{{ route('site.about') }}"> {{ __('models.about') }} </a></li>
-                            <li><a href="{{ route('site.books.index') }}">{{ __('models.books') }}</a></li>
-                            <li><a href="{{ route('site.videos.index') }}"> {{ __('models.videos') }} </a></li>
-                            <li><a href="{{ route('site.articles.index') }}">{{ __('models.news') }}</a></li>
-                            <li><a href="{{ route('site.contact') }}">{{ __('models.contact_us') }} </a></li>
+                            <li><a href="{{ route('site.home') }}"> الرئيسية</a></li>
+                            <li><a href="aboutus.html"> من نحن </a></li>
+                            <li><a href="solutions.html">حلول</a></li>
+                            <li><a href="sectors.html">قطاعات</a></li>
+                            <li><a href="partners.html">شركاء</a></li>
+                            <li><a href="clients.html">عملاء</a></li>
+                            <li><a href="jobs.html">وظائف</a></li>
+                            <li><a href="news.html">الاخبار </a></li>
+                            <li><a href="contactus.html">اتصل بنا</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-2  col-md-6">
-                    <div class="icons-top-ber">
-                        <ul>
-                            <li>
-                                <a href="" data-toggle="modal" data-target=".bd-example-modal-lg"> <img
-                                        src="{{ url('site') }}/images/icon1.png" alt=""></a>
-                            </li>
-                            <li>
 
-                                @if (App::getLocale() == 'ar')
-                                    <a href="{{ route('language', 'en') }}">
-                                        EN
-                                    </a>
-                                @else
-                                    <a href="{{ route('language', 'ar') }}">
-                                        عربى
-                                    </a>
-                                @endif
-
-                            </li>
-                        </ul>
+                <div class="col-lg-2">
+                    <div class="language">
+                        <a href=""> العربية <i class="bi bi-caret-down-fill"></i></a>
+                        <div class="dropdowm-language">
+                            <ul>
+                                <li> <a href="">عربي</a></li>
+                                <li> <a href=""> English </a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
 
             <div class="menu-div">
                 <div class="content" id="times-ican">
@@ -64,12 +51,4 @@
             </div>
         </div>
     </div>
-    <!-- end top-par -->
-
-
-    @yield('sub-header')
-
-
 </header>
-<!-- end header =====
-        ============== -->

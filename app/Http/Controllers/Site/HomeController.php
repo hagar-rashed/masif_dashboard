@@ -8,45 +8,39 @@ use App\Models\About;
 use App\Repositories\Contract\AboutRepositoryInterface;
 use App\Repositories\Contract\ArticleRepositoryInterface;
 use App\Repositories\Contract\BookRepositoryInterface;
+use App\Repositories\Contract\BrandRepositoryInterface;
 use App\Repositories\Contract\MailListRepositoryInterface;
+use App\Repositories\Contract\ServiceRepositoryInterface;
 use App\Repositories\Contract\TalkRepositoryInterface;
 use App\Repositories\Contract\VideoRepositoryInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $articleRepository;
-    protected $bookRepository;
-    protected $videoRepository;
-    protected $mailListRepository;
-    protected $aboutRepo;
-    protected $talkRepo;
+    protected $serviceRepo;
+    protected $articleRepo;
+    protected $brandRepo;
 
     public function __construct(
-        ArticleRepositoryInterface $articleRepository,
-        BookRepositoryInterface $bookRepository,
-        VideoRepositoryInterface $videoRepository,
-        MailListRepositoryInterface $mailListRepository,
-        AboutRepositoryInterface $aboutRepo,
-        TalkRepositoryInterface $talkRepo
+        ServiceRepositoryInterface $serviceRepo,
+        ArticleRepositoryInterface $articleRepo,
+        BrandRepositoryInterface $brandRepo
     ) {
-        $this->articleRepository = $articleRepository;
-        $this->bookRepository = $bookRepository;
-        $this->videoRepository = $videoRepository;
-        $this->mailListRepository = $mailListRepository;
-        $this->aboutRepo = $aboutRepo;
-        $this->talkRepo = $talkRepo;
+        $this->serviceRepo = $serviceRepo;
+        $this->articleRepo = $articleRepo;
+        $this->brandRepo = $brandRepo;
     }
 
     public function index()
     {
-        $articles = $this->articleRepository->limit(4, ['column' => 'publish_date', 'dir' => 'DESC']);
 
-        $books = $this->bookRepository->limit(4);
+        $services = $this->serviceRepo->getAll(['column' => 'id', 'dir' => 'ASC']);
 
-        $videos = $this->videoRepository->limit(3);
+        $news = $this->articleRepo->limit(5);
 
-        return view('site.home', compact('books', 'videos', 'articles'));
+        $clients = $this->brandRepo->limit(12);
+
+        return view('site.home', compact('services', 'news', 'clients'));
     }
 
     public function about()
