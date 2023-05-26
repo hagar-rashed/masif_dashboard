@@ -145,6 +145,9 @@ return [
     'jobs'             => 'Jobs',
     'add_n_job'        => 'Add new Job',
     'edit_job'         => 'Edit Job',
+    'sectors'          => 'Sectors',
+    'add_n_sector'     => 'Add new Sector',
+    'edit_sector'      => 'Edit Sector',
 
 
     // ==========================Settings========================== //

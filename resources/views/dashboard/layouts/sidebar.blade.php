@@ -101,6 +101,17 @@
             </li>
         </ul>
 
+        {{-- sectors --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.sectors.index', 'admin.sectors.create', 'admin.sectors.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.sectors.index') }}">
+                    <i class="fa-solid fa-puzzle-piece"></i><span
+                        class="menu-title text-truncate">{{ __('models.sectors') }}</span>
+                </a>
+            </li>
+        </ul>
+
         {{-- videos --}}
         {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

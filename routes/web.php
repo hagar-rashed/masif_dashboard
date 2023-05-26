@@ -71,6 +71,8 @@ Route::middleware('localization')->group(function () {
 
         Route::resource('jobs', 'JobVacancyController');
 
+        Route::resource('sectors', 'SectorController');
+
         Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
         Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
