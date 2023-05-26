@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.news'))
+@section('title', __('models.jobs'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,7 +15,7 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.articles.index') }}">{{ __('models.news') }}</a>
+                                            href="{{ route('admin.jobs.index') }}">{{ __('models.jobs') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -29,9 +29,8 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                     data-feather="grid"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{ route('admin.articles.create') }}"><i class="mr-1"
-                                        data-feather="circle"></i><span
-                                        class="align-middle">{{ __('models.add_n_article') }}
+                                    href="{{ route('admin.jobs.create') }}"><i class="mr-1"
+                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_job') }}
                                     </span></a>
                             </div>
                         </div>
@@ -48,31 +47,24 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.title') }}</th>
-                                            <th>{{ __('models.category') }}</th>
+                                            <th>{{ __('models.name') }}</th>
                                             <th>{{ __('models.desc') }}</th>
-                                            <th>{{ __('models.image') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($articles as $article)
+                                        @foreach ($jobs as $job)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $article->title }}</td>
-                                                <td>{{ $article->category->name }}</td>
-                                                <td>{!! strip_tags(Str::words($article->desc, 15)) !!}</td>
-                                                <td>
-                                                    <img src="{{ asset('storage/' . $article->image) }}"
-                                                        style="width: 80px; height: auto;">
-                                                </td>
+                                                <td>{{ $job->name }}</td>
+                                                <td>{!! strip_tags(Str::words($job->desc, 15)) !!}</td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Second group">
-                                                        <a href="{{ route('admin.articles.edit', $article->id) }}"
+                                                        <a href="{{ route('admin.jobs.edit', $job->id) }}"
                                                             class="btn btn-sm btn-primary"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('admin.articles.destroy', $article->id) }}"
-                                                            data-id="{{ $article->id }}"
+                                                        <a href="{{ route('admin.jobs.destroy', $job->id) }}"
+                                                            data-id="{{ $job->id }}"
                                                             class="btn btn-sm btn-danger item-delete"><i
                                                                 class="fa-solid fa-trash-can"></i></a>
                                                     </div>

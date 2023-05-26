@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\JobVacancyRepository;
+        use App\Repositories\Contract\JobVacancyRepositoryInterface;
+
         use App\Repositories\Sql\CategoryRepository;
         use App\Repositories\Contract\CategoryRepositoryInterface;
 
@@ -56,6 +59,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(JobVacancyRepositoryInterface::class, JobVacancyRepository::class);
 
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
 

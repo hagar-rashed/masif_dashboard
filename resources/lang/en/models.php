@@ -142,6 +142,9 @@ return [
     'category'         => 'Category',
     'select'           => 'Select',
     'media'            => 'Media',
+    'jobs'             => 'Jobs',
+    'add_n_job'        => 'Add new Job',
+    'edit_job'         => 'Edit Job',
 
 
     // ==========================Settings========================== //
