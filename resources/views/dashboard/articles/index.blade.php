@@ -61,7 +61,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $article->title }}</td>
                                                 <td>{{ $article->category->name }}</td>
-                                                <td>{{ Str::words($article->desc, 15) }}</td>
+                                                <td>{!! Str::words($article->desc, 15) !!}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $article->image) }}"
                                                         style="width: 80px; height: auto;">

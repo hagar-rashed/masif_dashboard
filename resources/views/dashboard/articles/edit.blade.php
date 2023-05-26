@@ -157,14 +157,11 @@
         <script src="{{ asset('dashboard/app-assets/js/custom/preview-image.js') }}"></script>
 
         <script>
-            $(document).ready(function() {
-                $('#desc_ar').summernote({
-                    lang: 'ar-Eg'
-                });
-                $('#desc_en').summernote({
-                    lang: 'en-US'
-                });
+            CKEDITOR.replace('desc_ar', {
+                contentsLangDirection: "rtl"
             });
+
+            CKEDITOR.replace('desc_en');
         </script>
     @endpush
 @endsection
