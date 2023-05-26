@@ -158,7 +158,11 @@ return [
     'goals'            => 'الأهداف',
     'our_services'     => 'خدمتنا',
     'our_news'         => 'أخبارنا',
-    'clients'         => 'العملاء',
+    'clients'          => 'العملاء',
+    'what_we_do'       => 'ماذا نفعل',
+    'how_we_do'        => 'كيف نفعل ذلك',
+    'why_we_do'        => 'لماذا نقوم بذلك',
+    'our_core_values'  => 'قيمنا الأساسية',
 
 
 

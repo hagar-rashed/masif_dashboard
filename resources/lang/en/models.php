@@ -158,7 +158,10 @@ return [
     'our_services'     => 'Our Services',
     'our_news'         => 'Our News',
     'clients'          => 'Clients',
-
+    'what_we_do'       => 'What do we do',
+    'how_we_do'        => 'How do we do that',
+    'why_we_do'        => 'Why do we do that',
+    'our_core_values'  => 'Our Core Values',
 
 
     // ==========================Settings========================== //

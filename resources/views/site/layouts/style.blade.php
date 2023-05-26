@@ -37,4 +37,9 @@
 <link rel="stylesheet" href="{{ url('site') }}/css/loader.css">
 <link rel="stylesheet" href="{{ url('site') }}/css/main.css">
 <link rel="stylesheet" href="{{ url('site') }}/css/responsive.css">
-<link rel="stylesheet" href="{{ url('site') }}/css/ar.css">
+
+@if (app()->getLocale() === 'ar')
+    <link rel="stylesheet" href="{{ url('site') }}/css/ar.css">
+@else
+    <link rel="stylesheet" href="{{ url('site') }}/css/en.css">
+@endif

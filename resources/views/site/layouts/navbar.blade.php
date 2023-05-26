@@ -12,8 +12,8 @@
                 <div class="col-lg-8">
                     <div class="element">
                         <ul>
-                            <li><a href="{{ route('site.home') }}"> الرئيسية</a></li>
-                            <li><a href="aboutus.html"> من نحن </a></li>
+                            <li><a href="{{ route('site.home') }}"> {{ __('models.home') }}</a></li>
+                            <li><a href="{{ route('site.about') }}"> {{ __('models.about_us') }} </a></li>
                             <li><a href="solutions.html">حلول</a></li>
                             <li><a href="sectors.html">قطاعات</a></li>
                             <li><a href="partners.html">شركاء</a></li>
@@ -28,11 +28,14 @@
 
                 <div class="col-lg-2">
                     <div class="language">
-                        <a href=""> العربية <i class="bi bi-caret-down-fill"></i></a>
+                        <a href="">
+                            {{ app()->getLocale() === 'ar' ? 'العربية' : 'English' }}
+                            <i class="bi bi-caret-down-fill"></i>
+                        </a>
                         <div class="dropdowm-language">
                             <ul>
-                                <li> <a href="">عربي</a></li>
-                                <li> <a href=""> English </a></li>
+                                <li> <a href="{{ route('language', 'ar') }}">عربي</a></li>
+                                <li> <a href="{{ route('language', 'en') }}"> English </a></li>
                             </ul>
                         </div>
                     </div>

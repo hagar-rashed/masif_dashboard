@@ -3,16 +3,10 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Site\MailListRequest;
-use App\Models\About;
-use App\Repositories\Contract\AboutRepositoryInterface;
 use App\Repositories\Contract\ArticleRepositoryInterface;
-use App\Repositories\Contract\BookRepositoryInterface;
 use App\Repositories\Contract\BrandRepositoryInterface;
-use App\Repositories\Contract\MailListRepositoryInterface;
 use App\Repositories\Contract\ServiceRepositoryInterface;
-use App\Repositories\Contract\TalkRepositoryInterface;
-use App\Repositories\Contract\VideoRepositoryInterface;
+use App\Repositories\Contract\ValueRepositoryInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,20 +14,22 @@ class HomeController extends Controller
     protected $serviceRepo;
     protected $articleRepo;
     protected $brandRepo;
+    protected $valueRepo;
 
     public function __construct(
         ServiceRepositoryInterface $serviceRepo,
         ArticleRepositoryInterface $articleRepo,
-        BrandRepositoryInterface $brandRepo
+        BrandRepositoryInterface $brandRepo,
+        ValueRepositoryInterface $valueRepo
     ) {
         $this->serviceRepo = $serviceRepo;
         $this->articleRepo = $articleRepo;
-        $this->brandRepo = $brandRepo;
+        $this->brandRepo   = $brandRepo;
+        $this->valueRepo   = $valueRepo;
     }
 
     public function index()
     {
-
         $services = $this->serviceRepo->getAll(['column' => 'id', 'dir' => 'ASC']);
 
         $news = $this->articleRepo->limit(5);
@@ -45,15 +41,11 @@ class HomeController extends Controller
 
     public function about()
     {
-        $dataLife = $this->aboutRepo->getWhere([['type', 'life']]);
+        $values = $this->valueRepo->getAll();
 
-        $activites = $this->aboutRepo->getWhere([['type', 'activity']]);
+        $clients = $this->brandRepo->limit(12);
 
-        $books = $this->bookRepository->limit(2);
-
-        $talks = $this->talkRepo->getAll();
-
-        return view('site.about', compact('dataLife', 'activites', 'books', 'talks'));
+        return view('site.about', compact('values', 'clients'));
     }
 
     // search
