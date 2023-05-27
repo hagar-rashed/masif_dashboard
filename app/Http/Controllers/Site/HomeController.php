@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Contract\ArticleRepositoryInterface;
 use App\Repositories\Contract\BrandRepositoryInterface;
 use App\Repositories\Contract\ServiceRepositoryInterface;
+use App\Repositories\Contract\SolutionRepositoryInterface;
 use App\Repositories\Contract\ValueRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -15,17 +16,20 @@ class HomeController extends Controller
     protected $articleRepo;
     protected $brandRepo;
     protected $valueRepo;
+    protected $solutionRepo;
 
     public function __construct(
         ServiceRepositoryInterface $serviceRepo,
         ArticleRepositoryInterface $articleRepo,
         BrandRepositoryInterface $brandRepo,
-        ValueRepositoryInterface $valueRepo
+        ValueRepositoryInterface $valueRepo,
+        SolutionRepositoryInterface $solutionRepo
     ) {
-        $this->serviceRepo = $serviceRepo;
-        $this->articleRepo = $articleRepo;
-        $this->brandRepo   = $brandRepo;
-        $this->valueRepo   = $valueRepo;
+        $this->serviceRepo  = $serviceRepo;
+        $this->articleRepo  = $articleRepo;
+        $this->brandRepo    = $brandRepo;
+        $this->valueRepo    = $valueRepo;
+        $this->solutionRepo = $solutionRepo;
     }
 
     public function index()
@@ -46,6 +50,15 @@ class HomeController extends Controller
         $clients = $this->brandRepo->limit(12);
 
         return view('site.about', compact('values', 'clients'));
+    }
+
+    public function solutions()
+    {
+        $solutions = $this->solutionRepo->getAll(['column' => 'id', 'dir' => 'ASC']);
+
+        $clients = $this->brandRepo->limit(12);
+
+        return view('site.solutions', compact('solutions', 'clients'));
     }
 
     // search

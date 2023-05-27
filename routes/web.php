@@ -105,6 +105,8 @@ Route::middleware('localization')->group(function () {
 
         Route::get('about-us', 'HomeController@about')->name('about');
 
+        Route::get('solutions', 'HomeController@solutions')->name('solutions');
+
         // Books Routes
         Route::get('books', 'BookController@index')->name('books.index');
         Route::get('book-details/{id}', 'BookController@show')->name('books.show');

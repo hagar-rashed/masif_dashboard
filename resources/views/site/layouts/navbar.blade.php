@@ -14,7 +14,7 @@
                         <ul>
                             <li><a href="{{ route('site.home') }}"> {{ __('models.home') }}</a></li>
                             <li><a href="{{ route('site.about') }}"> {{ __('models.about_us') }} </a></li>
-                            <li><a href="solutions.html">حلول</a></li>
+                            <li><a href="{{ route('site.solutions') }}">{{ __('models.solutions') }}</a></li>
                             <li><a href="sectors.html">قطاعات</a></li>
                             <li><a href="partners.html">شركاء</a></li>
                             <li><a href="clients.html">عملاء</a></li>
