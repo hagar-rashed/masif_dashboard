@@ -45,19 +45,9 @@ Route::middleware('localization')->group(function () {
 
         Route::get('/', 'DashboardController@home')->name('home');
 
-        Route::resource('books', 'BookController');
-
         Route::resource('categories', 'CategoryController');
 
         Route::resource('articles', 'ArticleController');
-
-        Route::resource('scraps', 'ScrapController');
-
-        Route::resource('talks', 'TalkController');
-
-        Route::resource('videos', 'VideoController');
-
-        Route::resource('about', 'AboutController');
 
         Route::resource('services', 'ServiceController');
 
@@ -65,11 +55,11 @@ Route::middleware('localization')->group(function () {
 
         Route::resource('solutions', 'SolutionController');
 
-        Route::resource('brands', 'BrandController');
+        // Route::resource('brands', 'BrandController');
 
         Route::resource('partners', 'PartnerController');
 
-        Route::resource('customers', 'CustomerController');
+        Route::resource('clients', 'CustomerController');
 
         Route::resource('jobs', 'JobVacancyController');
 
@@ -110,6 +100,8 @@ Route::middleware('localization')->group(function () {
         Route::get('sectors', 'HomeController@sectors')->name('sectors');
 
         Route::get('partners', 'BrandController@partners')->name('partners');
+
+        Route::get('clients', 'BrandController@clients')->name('clients');
 
         // Books Routes
         Route::get('books', 'BookController@index')->name('books.index');

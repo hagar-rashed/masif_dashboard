@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\BrandRequest;
+use App\Http\Requests\Dashboard\CustomerRequest;
 use App\Repositories\Contract\BrandRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -45,7 +45,7 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BrandRequest $request)
+    public function store(CustomerRequest $request)
     {
         $data = $request->all();
 
@@ -53,12 +53,12 @@ class CustomerController extends Controller
             $data['image'] = $request->file('image')->store('customers');
         }
 
-        $data['type'] = 'customer';
+        $data['type'] = 'client';
 
         $customer = $this->brandRepo->create($data);
 
         if ($customer) {
-            return redirect()->route('admin.customers.index')->with('success', __('models.added_success'));
+            return redirect()->route('admin.clients.index')->with('success', __('models.added_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء الإضافة');
         }
@@ -99,7 +99,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BrandRequest $request, $id)
+    public function update(CustomerRequest $request, $id)
     {
         $customer = $this->brandRepo->findOne($id);
 
@@ -118,7 +118,7 @@ class CustomerController extends Controller
         $customer->update($data);
 
         if ($customer) {
-            return redirect()->route('admin.customers.index')->with('success', __('models.update_success'));
+            return redirect()->route('admin.clients.index')->with('success', __('models.update_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء التعديل');
         }

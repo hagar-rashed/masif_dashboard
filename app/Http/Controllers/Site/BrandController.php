@@ -23,4 +23,11 @@ class BrandController extends Controller
 
         return view('site.partners', compact('partners', 'clients'));
     }
+
+    public function clients()
+    {
+        $clients = $this->brandRepo->paginateGetWhere([['type', 'client']], 24);
+
+        return view('site.clients', compact('clients'));
+    }
 }

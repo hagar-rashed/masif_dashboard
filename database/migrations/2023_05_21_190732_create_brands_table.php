@@ -20,9 +20,9 @@ class CreateBrandsTable extends Migration
             $table->string('desc_ar')->nullable();
             $table->string('desc_en')->nullable();
             $table->string('image');
-            $table->string('media');
-            // $table->string('link');
+            $table->string('media')->nullable();
             $table->string('type');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

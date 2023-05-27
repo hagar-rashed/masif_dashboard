@@ -17,7 +17,7 @@
                             <li><a href="{{ route('site.solutions') }}">{{ __('models.solutions') }}</a></li>
                             <li><a href="{{ route('site.sectors') }}">{{ __('models.sectors') }}</a></li>
                             <li><a href="{{ route('site.partners') }}">{{ __('models.partners') }}</a></li>
-                            <li><a href="clients.html">عملاء</a></li>
+                            <li><a href="{{ route('site.clients') }}">{{ __('models.clients') }}</a></li>
                             <li><a href="jobs.html">وظائف</a></li>
                             <li><a href="news.html">الاخبار </a></li>
                             <li><a href="contactus.html">اتصل بنا</a></li>

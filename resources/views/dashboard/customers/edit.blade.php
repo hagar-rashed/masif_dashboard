@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.edit_customer'))
+@section('title', __('models.edit_client'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,9 +15,9 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.customers.index') }}">{{ __('models.customers') }}</a>
+                                            href="{{ route('admin.clients.index') }}">{{ __('models.clients') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">{{ __('models.edit_customer') }}</a>
+                                    <li class="breadcrumb-item"><a href="#">{{ __('models.edit_client') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -32,17 +32,17 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2 class="card-title">{{ __('models.edit_customer') }}</h2>
+                                    <h2 class="card-title">{{ __('models.edit_client') }}</h2>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form form-vertical" id="updatecustomerForm"
-                                        action="{{ route('admin.customers.update', $customer->id) }}" method="POST"
+                                    <form class="form form-vertical" id="updateclientForm"
+                                        action="{{ route('admin.clients.update', $client->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PATCH')
                                         <div class="row">
 
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
@@ -55,89 +55,25 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group prev">
-                                                    <img src="{{ asset('storage/' . $customer->image) }}"
+                                                    <img src="{{ asset('storage/' . $client->image) }}"
                                                         style="width: 100px" class="img-thumbnail preview-formFile"
                                                         alt="">
                                                 </div>
                                             </div>
 
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="formFile"
-                                                        class="form-label">{{ __('models.media') }}</label>
-                                                    <input class="form-control media"
-                                                        accept="image/png, image/jpeg, video/mp4" type="file"
-                                                        id="formFile" name="media">
-                                                    @error('media')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
 
                                             <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="name_ar">{{ __('models.name_ar') }}</label>
-                                                    <input type="text" id="name_ar" class="form-control" name="name_ar"
-                                                        value="{{ old('name_ar', $customer->name_ar) }}" />
-                                                    @error('name_ar')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="name_en">{{ __('models.name_en') }}</label>
-                                                    <input type="text" id="name_en" class="form-control" name="name_en"
-                                                        value="{{ old('name_en', $customer->name_en) }}" />
-                                                    @error('name_en')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="desc_ar">{{ __('models.desc_ar') }}</label>
-                                                    <textarea class="form-control" name="desc_ar" rows="10">{{ old('desc_ar', $customer->desc_ar) }}</textarea>
-                                                    @error('desc_ar')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="desc_en">{{ __('models.desc_en') }}</label>
-                                                    <textarea class="form-control" name="desc_en" rows="10">{{ old('desc_en', $customer->desc_en) }}</textarea>
-                                                    @error('desc_en')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            {{-- <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="link">{{ __('models.link') }}</label>
                                                     <input type="text" id="link" class="form-control" name="link"
-                                                        value="{{ old('link', $customer->link) }}" />
+                                                        value="{{ old('link', $client->link) }}" />
                                                     @error('link')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
                                                     @enderror
                                                 </div>
-                                            </div> --}}
+                                            </div>
 
                                             <div class="col-12">
                                                 <button type="submit"
@@ -156,7 +92,7 @@
     <!-- END: Content-->
 
     @push('js')
-        <script src="{{ asset('dashboard/assets/js/custom/validation/customerForm.js') }}"></script>
+        <script src="{{ asset('dashboard/assets/js/custom/validation/clientForm.js') }}"></script>
         <script src="{{ asset('dashboard/app-assets/js/custom/preview-image.js') }}"></script>
     @endpush
 @endsection

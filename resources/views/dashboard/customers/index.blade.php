@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.customers'))
+@section('title', __('models.clients'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,7 +15,7 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.customers.index') }}">{{ __('models.customers') }}</a>
+                                            href="{{ route('admin.clients.index') }}">{{ __('models.clients') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -29,9 +29,8 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                     data-feather="grid"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{ route('admin.customers.create') }}"><i class="mr-1"
-                                        data-feather="circle"></i><span
-                                        class="align-middle">{{ __('models.add_n_customer') }}
+                                    href="{{ route('admin.clients.create') }}"><i class="mr-1"
+                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_client') }}
                                     </span></a>
                             </div>
                         </div>
@@ -48,9 +47,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.name') }}</th>
-                                            <th>{{ __('models.desc') }}</th>
                                             <th>{{ __('models.image') }}</th>
+                                            <th>{{ __('models.link') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
                                     </thead>
@@ -58,18 +56,21 @@
                                         @foreach ($customers as $customer)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $customer->name ?? '-' }}</td>
-                                                <td>{{ $customer->desc ?? '-' }}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $customer->image) }}"
                                                         style="width: 100px; height: auto;">
                                                 </td>
+                                                <td>
+                                                    <a href="{{ $customer->link }}" target="_blank">
+                                                        <i class="fa-solid fa-link" style="color: #4d8eff;"></i>
+                                                    </a>
+                                                </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Second group">
-                                                        <a href="{{ route('admin.customers.edit', $customer->id) }}"
+                                                        <a href="{{ route('admin.clients.edit', $customer->id) }}"
                                                             class="btn btn-sm btn-primary"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('admin.customers.destroy', $customer->id) }}"
+                                                        <a href="{{ route('admin.clients.destroy', $customer->id) }}"
                                                             data-id="{{ $customer->id }}"
                                                             class="btn btn-sm btn-danger item-delete"><i
                                                                 class="fa-solid fa-trash-can"></i></a>

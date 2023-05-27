@@ -6,7 +6,7 @@
 
 @image(asset('storage/' . getSetting('logo')))
 
-@section('title', __('models.solutions'))
+@section('title', __('models.sectors'))
 
 @section('content')
     <section class="sectors">

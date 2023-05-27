@@ -72,14 +72,14 @@
         </ul>
 
         {{-- brands --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.brands.index', 'admin.brands.create', 'admin.brands.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.brands.index') }}"><i
                         class="fa-solid fa-tag"></i><span
                         class="menu-title text-truncate">{{ __('models.brands') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- partners --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
@@ -94,10 +94,10 @@
         {{-- customers --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
-                class="nav-item {{ areActiveRoutes(['admin.customers.index', 'admin.customers.create', 'admin.customers.edit']) }}">
-                <a class="d-flex align-items-center" href="{{ route('admin.customers.index') }}"><i
+                class="nav-item {{ areActiveRoutes(['admin.clients.index', 'admin.clients.create', 'admin.clients.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.clients.index') }}"><i
                         class="fa-solid fa-user-tie"></i><span
-                        class="menu-title text-truncate">{{ __('models.customers') }}</span></a>
+                        class="menu-title text-truncate">{{ __('models.clients') }}</span></a>
             </li>
         </ul>
 
