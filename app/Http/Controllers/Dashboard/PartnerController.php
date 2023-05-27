@@ -53,6 +53,10 @@ class PartnerController extends Controller
             $data['image'] = $request->file('image')->store('partners');
         }
 
+        if ($request->hasFile('media')) {
+            $data['media'] = $request->file('media')->store('partners');
+        }
+
         $data['type'] = 'partner';
 
         $partner = $this->brandRepo->create($data);
@@ -113,6 +117,16 @@ class PartnerController extends Controller
         } else {
 
             $data['image'] = $partner->image;
+        }
+
+        if ($request->hasFile('media')) {
+
+            Storage::delete($partner->media);
+
+            $data['media'] = $request->file('media')->store('partners');
+        } else {
+
+            $data['media'] = $partner->media;
         }
 
         $partner->update($data);

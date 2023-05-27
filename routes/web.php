@@ -109,6 +109,8 @@ Route::middleware('localization')->group(function () {
 
         Route::get('sectors', 'HomeController@sectors')->name('sectors');
 
+        Route::get('partners', 'BrandController@partners')->name('partners');
+
         // Books Routes
         Route::get('books', 'BookController@index')->name('books.index');
         Route::get('book-details/{id}', 'BookController@show')->name('books.show');

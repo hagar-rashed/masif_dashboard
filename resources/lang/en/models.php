@@ -163,6 +163,7 @@ return [
     'why_we_do'        => 'Why do we do that',
     'our_core_values'  => 'Our Core Values',
     'learn_more'       => 'Learn more',
+    'our_partners'     => 'Our Partners',
 
 
     // ==========================Settings========================== //

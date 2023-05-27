@@ -20,4 +20,11 @@ class Brand extends Model
     {
         return $this->{'desc_' . app()->getLocale()};
     }
+
+    public function getExtAttribute()
+    {
+        $ext = explode('.', $this->media);
+
+        return end($ext);
+    }
 }

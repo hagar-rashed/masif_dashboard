@@ -130,10 +130,10 @@ return [
     'brands'           => 'الماركات',
     'add_n_brand'      => 'إضافة ماركة جديدة',
     'edit_brand'       => 'تعديل الماركة',
-    'partners'         => 'الشركاء',
+    'partners'         => 'شركاء',
     'add_n_partner'    => 'إضافة شريك جديد',
     'edit_partner'     => 'تعديل الشريك',
-    'customers'        => 'العملاء',
+    'customers'        => 'عملاء',
     'add_n_customer'   => 'إضافة عميل جديد',
     'edit_customer'    => 'تعديل العميل',
     'categories'       => 'الأقسام',
@@ -164,6 +164,7 @@ return [
     'why_we_do'        => 'لماذا نقوم بذلك',
     'our_core_values'  => 'قيمنا الأساسية',
     'learn_more'       => 'لمعرفة المزيد',
+    'our_partners'     => 'شركاؤنا',
 
 
 
