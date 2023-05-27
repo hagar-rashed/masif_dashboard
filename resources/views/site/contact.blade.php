@@ -1,6 +1,6 @@
 @extends('site.layouts.app')
 
-@title(getSetting('main_name', app()->getLocale()))
+@title('New Cairo')
 
 @description(Str::limit(getSetting('about', app()->getLocale()), 160))
 
@@ -8,70 +8,130 @@
 
 @section('title', __('models.contact_us'))
 
-@section('sub-header')
-    <!-- start sub-header  -->
-    <div class="sub-header">
-        <div class="title-pages">
-            <h1>{{ __('models.contact_us') }}</h1>
-        </div>
-        <div class="navigation-header">
-            <a href="{{ route('site.home') }}"> {{ __('models.home') }} </a> <img src="{{ url('site') }}/images/arrow-1.png" alt="">
-            <span>{{ __('models.contact_us') }}</span>
-        </div>
-    </div>
-    <!-- end  sub-header  -->
-@endsection
-
 @section('content')
-    <!-- start app ====
-                ===============================
-                ================================
-                ============== --
-                -->
-    <main id="app">
-
-        <section class="contactus">
-            <div class="main-container">
-                <form action="{{ route('site.contact.sendContact') }}" method="POST" id="contactForm">
-                    @csrf
-                    <p>
-                        {{ __('models.contact_desc') }}
-                    </p>
-
-
-                    <div class="input-form">
-                        <label for=""> {{ __('models.fullname') }} </label>
-                        <input type="text" class="form-control" placeholder=" {{ __('models.enter_fullname') }} " name="fullname">
-                    </div>
-                    <div class="input-form">
-                        <label for="">{{ __('models.phone') }}</label>
-                        <input type="tel" class="form-control" placeholder="{{ __('models.enter_phone') }}" name="phone">
-                    </div>
-                    <div class="input-form">
-                        <label for="">{{ __('models.email') }}</label>
-                        <input type="email" class="form-control" placeholder="{{ __('models.enter_email') }}" name="email">
-                    </div>
-                    <div class="input-form">
-                        <label for="">{{ __('models.message') }} </label>
-                        <textarea name="message" id="" cols="" rows="" class="form-control"
-                            placeholder="{{ __('models.enter_message') }}"></textarea>
-                    </div>
-
-                    <div class="btn-contactus">
-                        <button class="ctm-btn"> {{ __('models.send') }} </button>
-                    </div>
-                </form>
+    <section class="contactus">
+        <div class="main-container">
+            <div class="title-start">
+                <h2 class="title-start1"> {{ __('models.contact_us') }} </h2>
             </div>
-        </section>
 
 
+            <div class="main-contactus">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form action="{{ route('site.contact.sendContact') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-contactus">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="surname">{{ __('models.surname') }} </label>
+                                            <input type="text" class="form-control" value="{{ old('surname') }}"
+                                                name="surname" required>
 
-    </main>
+                                            @error('surname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="firstname">{{ __('models.firstname') }} </label>
+                                            <input type="text" class="form-control" value="{{ old('firstname') }}"
+                                                name="firstname" required>
+                                            @error('firstname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="company">{{ __('models.company') }} </label>
+                                            <input type="text" class="form-control" value="{{ old('company') }}"
+                                                name="company" required>
+                                            @error('company')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="location">{{ __('models.location') }} </label>
+                                            <input type="text" class="form-control" value="{{ old('location') }}"
+                                                name="location" required>
+                                            @error('location')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="email">{{ __('models.email') }} </label>
+                                            <input type="email" class="form-control" value="{{ old('email') }}"
+                                                name="email" required>
+                                            @error('email')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-form">
+                                            <label for="phone">{{ __('models.phone') }} </label>
+                                            <input type="tel" class="form-control" value="{{ old('phone') }}"
+                                                name="phone" required>
+                                            @error('phone')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="input-form upload-form">
+                                            <input type="file" class="form-control"
+                                                accept="image/png, image/jpeg, application/pdf" id="upload-1"
+                                                name="file" required>
+                                            <label for="upload-1">
+                                                {{ __('models.choose_file') }}
+                                                <p class="form-control"></p>
+                                            </label>
+                                            @error('file')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-    <!-- end app ====
-            =============================
-            ==================================
-            ==================== -->
+                                    <div class="col-lg-12">
+                                        <div class="input-form">
+                                            <label for="message">{{ __('models.message') }} </label>
+                                            <textarea name="message" id="message" cols="" rows="" class="form-control">{{ old('message') }}</textarea>
+                                            @error('message')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="btn-contactus">
+                                            <button class="ctm-btn"> {{ __('models.send') }} </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="map">
+                            <a href="https://www.google.com/maps/place/29%C2%B058'26.3%22N+31%C2%B018'55.1%22E/@29.9724467,31.3107691,16.5z/data=!4m4!3m3!8m2!3d29.9739722!4d31.3153056?hl=en"
+                                target="_blank">
+                                <img src="{{ url('site') }}/images/map.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     @push('js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"

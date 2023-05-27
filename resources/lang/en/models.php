@@ -165,6 +165,12 @@ return [
     'learn_more'       => 'Learn more',
     'our_partners'     => 'Our Partners',
     'latest_news'      => 'Latest News',
+    'choose_file'      => 'Choose File',
+    'surname'          => 'Surname',
+    'firstname'        => 'Firstname',
+    'company'          => 'Company',
+    'location'         => 'Your Location',
+    'message_success'  => 'The message has been sent successfully',
 
 
     // ==========================Settings========================== //

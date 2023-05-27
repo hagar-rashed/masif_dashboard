@@ -24,9 +24,16 @@ class ContactController extends Controller
     public function sendContact(ContactRequest $request)
     {
 
-        $this->contactRepository->create($request->all());
+        $data = $request->except('_token', 'surname', 'firstname');
 
-        return redirect()->back()->with('success', 'تم ارسال الرسالة بنجاح');
+        $data['fullname'] = $request->firstname . ' ' . $request->surname;
 
+        if ($request->hasFile('file')) {
+            $data['file'] = $request->file('file')->store('contacts');
+        }
+
+        $this->contactRepository->create($data);
+
+        return redirect()->back()->with('success', __('models.message_success'));
     }
 }

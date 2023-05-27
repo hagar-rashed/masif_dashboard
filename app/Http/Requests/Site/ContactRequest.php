@@ -24,10 +24,14 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|digits_between:9,14',
-            'message' => 'required',
+            'surname'   => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'company'   => 'required|string|max:255',
+            'location'  => 'required|string|max:255',
+            'email'     => 'required|email',
+            'phone'     => 'required|digits_between:9,14',
+            'file'      => 'required|mimes:png,jpg,pdf',
+            'message'   => 'required',
         ];
     }
 }

@@ -6,7 +6,7 @@ return [
     'books'                     => 'الكتب و المؤلفات',
     'videos'                    => 'فيديوهات مرئية',
     'news'                      => 'الأخبار',
-    'contact_us'                => 'تواصل معنا',
+    'contact_us'                => 'اتصل بنا',
     'about_the'                 => 'نبذة عنه',
     'lang'                      => 'اللغة',
     'know_more'                 => 'معرفة المزيد',
@@ -166,6 +166,12 @@ return [
     'learn_more'       => 'لمعرفة المزيد',
     'our_partners'     => 'شركاؤنا',
     'latest_news'      => 'احدث الاخبار',
+    'choose_file'      => 'اختر ملف',
+    'surname'          => 'اللقب',
+    'firstname'        => 'الإسم',
+    'company'          => 'الشركة',
+    'location'         => 'موقعك',
+    'message_success'  => 'تم ارسال الرسالة بنجاح',
 
 
 
