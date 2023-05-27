@@ -175,6 +175,7 @@ return [
     'subscribe'            => 'اشترك',
     'subscription_success' => 'تم الاشتراك بنجاح',
     'new_article_added'    => 'تم إضافة مقال جديد',
+    'new_job_added'        => 'تم إضافة وظيفة جديدة',
     'about_company'        => 'عن الشركة',
 
 

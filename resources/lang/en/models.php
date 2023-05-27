@@ -174,6 +174,7 @@ return [
     'subscribe'            => 'Subscripe',
     'subscription_success' => 'Subscription completed successfully',
     'new_article_added'    => 'A new article has been added',
+    'new_job_added'        => 'A new job has been added',
     'about_company'        => 'About The Company',
 
 
