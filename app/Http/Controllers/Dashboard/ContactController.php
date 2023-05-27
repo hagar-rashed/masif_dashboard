@@ -7,6 +7,7 @@ use App\Mail\ReplyContact;
 use App\Repositories\Contract\ContactRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -37,7 +38,13 @@ class ContactController extends Controller
 
     public function deleteMsg(Request $request)
     {
-        $this->contactRepository->delete($request->id);
+        $contact = $this->contactRepository->findOne($request->id);
+
+        if ($contact->file) {
+            Storage::delete($contact->file);
+        }
+
+        $contact->delete();
 
         return \response()->json([
             'message' => 'تم الحذف بنجاح',
@@ -59,10 +66,9 @@ class ContactController extends Controller
 
             $data = $request->input('reply');
 
-            Mail::to( $contact->email )->send(new ReplyContact($data));
+            Mail::to($contact->email)->send(new ReplyContact($data));
 
-            return redirect()->route('admin.contacts.show', $contact->id)->with('success' , __('models.sent_reply'));
+            return redirect()->route('admin.contacts.show', $contact->id)->with('success', __('models.sent_reply'));
         }
-
     }
 }

@@ -68,22 +68,19 @@ Route::middleware('localization')->group(function () {
         Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
         Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
+        Route::get('job-applications', 'JobApplicationController@index')->name('job-applications.index');
+        Route::delete('job-applications/{id}', 'JobApplicationController@deleteMsg')->name('job-applications.deleteMsg');
+
         Route::get('contacts', 'ContactController@index')->name('contacts.index');
-
         Route::get('contacts/{id}', 'ContactController@show')->name('contacts.show');
-
         Route::get('contacts/{id}/reply', 'ContactController@showReplyForm')->name('contacts.reply');
-
         Route::post('contacts/send-reply', 'ContactController@sendReply')->name('contacts.sendReply');
-
         Route::delete('contacts/{id}', 'ContactController@deleteMsg')->name('contacts.deleteMsg');
 
         Route::get('mail-list', 'MailListController@index')->name('mail.index');
-
         Route::delete('mail-list/{id}', 'MailListController@deleteMail')->name('mail.deleteMail');
 
         Route::get('profile', 'ProfileController@getProfile')->name('profile');
-
         Route::post('update-profile', 'ProfileController@updateProfile')->name('update_profile');
     });
 
@@ -107,6 +104,12 @@ Route::middleware('localization')->group(function () {
         Route::get('news', 'ArticleController@index')->name('news.index');
         Route::get('news-details/{id}', 'ArticleController@show')->name('news.show');
         Route::get('news-filter/{id}', 'ArticleController@filter')->name('news.filter');
+
+        // Jobs Routes
+        Route::get('jobs', 'JobController@index')->name('jobs.index');
+        Route::get('jobs-details/{id}', 'JobController@show')->name('jobs.show');
+        Route::get('apply-job/{id}', 'JobController@apply')->name('jobs.apply');
+        Route::post('submit-job-application/{id}', 'JobController@submitJobApplication')->name('jobs.submit-job-application');
 
         // Contact Routes
         Route::get('contact', 'ContactController@showForm')->name('contact');

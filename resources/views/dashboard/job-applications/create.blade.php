@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.update_scrap'))
+@section('title', __('models.add_n_job'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,9 +15,9 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.scraps.index') }}">{{ __('models.news') }}</a>
+                                            href="{{ route('admin.jobs.index') }}">{{ __('models.jobs') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">{{ __('models.update_scrap') }}</a>
+                                    <li class="breadcrumb-item"><a href="#">{{ __('models.add_n_job') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -32,38 +32,45 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2 class="card-title">{{ __('models.update_scrap') }}</h2>
+                                    <h2 class="card-title">{{ __('models.add_n_job') }}</h2>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form form-vertical" id="updateScrapForm"
-                                        action="{{ route('admin.scraps.update', $scrap->id) }}" method="POST"
+                                    <form class="form form-vertical" id="createjobForm"
+                                        action="{{ route('admin.jobs.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
-                                        @method('PATCH')
                                         <div class="row">
 
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="formFile"
-                                                        class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" type="file" id="formFile"
-                                                        name="image">
-                                                    @error('image')
+                                                    <label for="name_ar">{{ __('models.name_ar') }}</label>
+                                                    <input type="text" id="name_ar" class="form-control" name="name_ar"
+                                                        value="{{ old('name_ar') }}" />
+                                                    @error('name_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group prev">
-                                                    <img src="{{ asset('storage/' . $scrap->image) }}" style="width: 100px"
-                                                        class="img-thumbnail preview-formFile" alt="">
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="name_en">{{ __('models.name_en') }}</label>
+                                                    <input type="text" id="name_en" class="form-control" name="name_en"
+                                                        value="{{ old('name_en') }}" />
+                                                    @error('name_en')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_ar">{{ __('models.desc_ar') }}</label>
-                                                    <textarea class="form-control" name="desc_ar" rows="10">{{ old('desc_ar', $scrap->desc_ar) }}</textarea>
+                                                    <textarea class="form-control summernote" name="desc_ar" id="desc_ar" rows="10">{{ old('desc_ar') }}</textarea>
                                                     @error('desc_ar')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -75,32 +82,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc_en">{{ __('models.desc_en') }}</label>
-                                                    <textarea class="form-control" name="desc_en" rows="10">{{ old('desc_en', $scrap->desc_en) }}</textarea>
+                                                    <textarea class="form-control summernote" name="desc_en" id="desc_en" rows="10">{{ old('desc_en') }}</textarea>
                                                     @error('desc_en')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="seo_desc_ar">{{ __('models.seo_desc_ar') }}</label>
-                                                    <textarea class="form-control" name="seo_desc_ar" rows="10">{{ old('seo_desc_ar', isset($scrap->seo) && $scrap->seo->desc_ar ? $scrap->seo->desc_ar : $scrap->desc_ar) }}</textarea>
-                                                    @error('seo_desc_ar')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="seo_desc_en">{{ __('models.seo_desc_en') }}</label>
-                                                    <textarea class="form-control" name="seo_desc_en" rows="10">{{ old('seo_desc_en', isset($scrap->seo) && $scrap->seo->desc_en ? $scrap->seo->desc_en : $scrap->desc_en) }}</textarea>
-                                                    @error('seo_desc_en')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
@@ -110,8 +93,9 @@
 
                                             <div class="col-12">
                                                 <button type="submit"
-                                                    class="btn btn-primary mr-1">{{ __('models.update') }}</button>
+                                                    class="btn btn-primary mr-1">{{ __('models.save') }}</button>
                                             </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -125,7 +109,15 @@
     <!-- END: Content-->
 
     @push('js')
-        <script src="{{ asset('dashboard/assets/js/custom/validation/scrapForm.js') }}"></script>
+        <script src="{{ asset('dashboard/assets/js/custom/validation/jobForm.js') }}"></script>
         <script src="{{ asset('dashboard/app-assets/js/custom/preview-image.js') }}"></script>
+
+        <script>
+            CKEDITOR.replace('desc_ar', {
+                contentsLangDirection: "rtl"
+            });
+
+            CKEDITOR.replace('desc_en');
+        </script>
     @endpush
 @endsection

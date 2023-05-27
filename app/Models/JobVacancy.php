@@ -25,4 +25,9 @@ class JobVacancy extends Model
     {
         return $this->{'desc_' . app()->getLocale()};
     }
+
+    public function jobApplications()
+    {
+        return $this->hasMany(JobApplication::class);
+    }
 }

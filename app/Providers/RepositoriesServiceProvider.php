@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+        use App\Repositories\Sql\JobApplicationRepository;
+        use App\Repositories\Contract\JobApplicationRepositoryInterface;
+
         use App\Repositories\Sql\ValueRepository;
         use App\Repositories\Contract\ValueRepositoryInterface;
 
@@ -65,6 +68,8 @@ class RepositoriesServiceProvider extends ServiceProvider
 {
 
     public function register(){
+
+        $this->app->bind(JobApplicationRepositoryInterface::class, JobApplicationRepository::class);
 
         $this->app->bind(ValueRepositoryInterface::class, ValueRepository::class);
 

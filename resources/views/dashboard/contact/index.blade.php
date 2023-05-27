@@ -14,7 +14,8 @@
                         <div class="col-12">
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('admin.contacts.index') }}">{{ __('models.contact_msgs') }}</a>
+                                    <li class="breadcrumb-item"><a
+                                            href="{{ route('admin.contacts.index') }}">{{ __('models.contact_msgs') }}</a>
                                     </li>
                                 </ol>
                             </div>
@@ -33,8 +34,11 @@
                                         <tr>
                                             <th>#</th>
                                             <th>{{ __('models.fullname') }}</th>
+                                            <th>{{ __('models.company') }}</th>
+                                            <th>{{ __('models.zlocation') }}</th>
                                             <th>{{ __('models.phone') }}</th>
                                             <th>{{ __('models.email') }}</th>
+                                            <th>{{ __('models.file') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
                                     </thead>
@@ -43,11 +47,18 @@
                                             <tr>
                                                 <td>{{ $contact->id }}</td>
                                                 <td>{{ $contact->fullname }}</td>
+                                                <td>{{ $contact->company }}</td>
+                                                <td>{{ $contact->location }}</td>
                                                 <td>
                                                     <a href="tel:{{ $contact->phone }}">{{ $contact->phone }}</a>
                                                 </td>
                                                 <td>
                                                     <a href="mailTo:{{ $contact->email }}">{{ $contact->email }}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ asset('storage/' . $contact->file) }}" target="_blank">
+                                                        <i class="fa-solid fa-link" style="color: #4d8eff;"></i>
+                                                    </a>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Second group">

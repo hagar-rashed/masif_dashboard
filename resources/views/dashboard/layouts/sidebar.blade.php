@@ -111,6 +111,17 @@
             </li>
         </ul>
 
+        {{-- job applications --}}
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.job-applications.index', 'admin.job-applications.create', 'admin.job-applications.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.job-applications.index') }}">
+                    <i class="fa-solid fa-file"></i><span
+                        class="menu-title text-truncate">{{ __('models.job_applications') }}</span>
+                </a>
+            </li>
+        </ul>
+
         {{-- sectors --}}
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li

@@ -176,6 +176,14 @@ return [
     'new_article_added'    => 'A new article has been added',
     'new_job_added'        => 'A new job has been added',
     'about_company'        => 'About The Company',
+    'apply'                => 'Apply',
+    'apply_job'            => 'Apply for this job',
+    'resume'               => 'Resume',
+    'job_success'          => 'Job application has been submitted successfully',
+    'job_name'             => 'Job name',
+    'job_applications'     => 'Job Applications',
+    'zlocation'            => 'Location',
+    'file'                 => 'File',
 
 
     // ==========================Settings========================== //

@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('models.scraps'))
+@section('title', __('models.job_applications'))
 
 @section('content')
     <!-- BEGIN: Content-->
@@ -15,27 +15,27 @@
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('admin.scraps.index') }}">{{ __('models.scraps') }}</a>
+                                            href="{{ route('admin.job-applications.index') }}">{{ __('models.job_applications') }}</a>
                                     </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                {{-- <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                     data-feather="grid"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{ route('admin.scraps.create') }}"><i class="mr-1"
-                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_scrap') }}
+                                    href="{{ route('admin.job-applications.create') }}"><i class="mr-1"
+                                        data-feather="circle"></i><span class="align-middle">{{ __('models.add_n_job') }}
                                     </span></a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="content-body">
                 <!-- Basic table -->
@@ -47,27 +47,36 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{ __('models.desc') }}</th>
-                                            <th>{{ __('models.image') }}</th>
+                                            <th>{{ __('models.job_name') }}</th>
+                                            <th>{{ __('models.name') }}</th>
+                                            <th>{{ __('models.email') }}</th>
+                                            <th>{{ __('models.phone') }}</th>
+                                            <th>{{ __('models.resume') }}</th>
                                             <th>{{ __('models.actions') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($scraps as $scrap)
+                                        @foreach ($applications as $application)
                                             <tr>
-                                                <td>{{ $scrap->id }}</td>
-                                                <td>{{ $scrap->desc }}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $application->jobVacancy->name }}</td>
+                                                <td>{{ $application->name }}</td>
                                                 <td>
-                                                    <img src="{{ asset('storage/' . $scrap->image) }}"
-                                                        style="width: 80px; height: auto;">
+                                                    <a
+                                                        href="mailTo:{{ $application->email }}">{{ $application->email }}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="tel:{{ $application->phone }}">{{ $application->phone }}</a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ asset('storage/' . $application->file) }}" target="_blank">
+                                                        <i class="fa-solid fa-link" style="color: #4d8eff;"></i>
+                                                    </a>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Second group">
-                                                        <a href="{{ route('admin.scraps.edit', $scrap->id) }}"
-                                                            class="btn btn-sm btn-primary"><i
-                                                                class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('admin.scraps.destroy', $scrap->id) }}"
-                                                            data-id="{{ $scrap->id }}"
+                                                        <a href="{{ route('admin.job-applications.deleteMsg', $application->id) }}"
+                                                            data-id="{{ $application->id }}"
                                                             class="btn btn-sm btn-danger item-delete"><i
                                                                 class="fa-solid fa-trash-can"></i></a>
                                                     </div>
