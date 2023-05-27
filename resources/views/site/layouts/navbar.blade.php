@@ -19,7 +19,7 @@
                             <li><a href="{{ route('site.partners') }}">{{ __('models.partners') }}</a></li>
                             <li><a href="{{ route('site.clients') }}">{{ __('models.clients') }}</a></li>
                             <li><a href="jobs.html">وظائف</a></li>
-                            <li><a href="news.html">الاخبار </a></li>
+                            <li><a href="{{ route('site.news.index') }}">{{ __('models.news') }}</a></li>
                             <li><a href="contactus.html">اتصل بنا</a></li>
                         </ul>
                     </div>

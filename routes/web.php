@@ -103,19 +103,10 @@ Route::middleware('localization')->group(function () {
 
         Route::get('clients', 'BrandController@clients')->name('clients');
 
-        // Books Routes
-        Route::get('books', 'BookController@index')->name('books.index');
-        Route::get('book-details/{id}', 'BookController@show')->name('books.show');
-        Route::get('book-download/{id}', 'BookController@downloadBook')->name('books.downloadBook');
-
         // Articles Routes
-        Route::get('blog', 'ArticleController@index')->name('articles.index');
-        Route::get('blog-details/{id}', 'ArticleController@show')->name('articles.show');
-        Route::get('scrap-details/{id}', 'ArticleController@scrap')->name('articles.scrap');
-
-        // Videos Routes
-        Route::get('videos', 'VideoController@index')->name('videos.index');
-        Route::get('video-details/{id}', 'VideoController@show')->name('videos.show');
+        Route::get('news', 'ArticleController@index')->name('news.index');
+        Route::get('news-details/{id}', 'ArticleController@show')->name('news.show');
+        Route::get('news-filter/{id}', 'ArticleController@filter')->name('news.filter');
 
         // Contact Routes
         Route::get('contact', 'ContactController@showForm')->name('contact');

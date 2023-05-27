@@ -164,6 +164,7 @@ return [
     'our_core_values'  => 'Our Core Values',
     'learn_more'       => 'Learn more',
     'our_partners'     => 'Our Partners',
+    'latest_news'      => 'Latest News',
 
 
     // ==========================Settings========================== //

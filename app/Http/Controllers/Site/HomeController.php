@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Repositories\Contract\ArticleRepositoryInterface;
 use App\Repositories\Contract\BrandRepositoryInterface;
 use App\Repositories\Contract\SectorRepositoryInterface;
@@ -76,21 +77,15 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        // dd($search);
 
-        $articles = $this->articleRepository->search(['id', '>', 0], ['title_' . app()->getLocale()], $search);
-
-        $books = $this->bookRepository->search(['id', '>', 0], ['title_' . app()->getLocale()], $search);
-
-        $videos = $this->videoRepository->search(['id', '>', 0], ['title_' . app()->getLocale()], $search);
-
-        // marge all results
-        $results = $articles->merge($books)->merge($videos);
-
+        $articles = Article::query()->where(function ($q) use ($search) {
+            $q->where('title_ar', 'LIKE', "%{$search}%")
+                ->orWhere('title_en', 'LIKE', "%{$search}%");
+        })->get();
 
         return response()->json([
             'status' => 'success',
-            'result' => $results,
+            'result' => $articles,
         ]);
     } // end of search
 }

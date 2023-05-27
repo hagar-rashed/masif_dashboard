@@ -29,6 +29,7 @@
             var url = $(this).data('url');
 
             var noResult = $('html').attr('lang') === 'ar' ? 'لا يوجد نتائج' : 'No Results';
+
             if (search.length > 1) {
                 // send request to server
                 $.ajax({
@@ -39,39 +40,24 @@
                     },
                     success: function(data) {
 
+                        $('#search_result').empty()
+
                         if (data.result.length > 0) {
                             $('.details_search').css('display', 'block');
                             var results = [];
 
-
-
                             data.result.forEach(function(res) {
-
-                                var link_articl = window.location.origin +
-                                    '/blog-details/' + res.id;
-                                var link_book = window.location.origin +
-                                    '/book-details/' + res.id;
-                                var link_video = window.location.origin +
-                                    '/video-details/' + res.id;
 
                                 var lang = $('html').attr('lang');
 
                                 var title = lang === 'ar' ? res.title_ar : res
                                     .title_en;
 
-                                if (res.type == 'article') {
-                                    results += '<li><a href="' + link_articl +
-                                        '">' + title +
-                                        '</a></li>';
-                                } else if (res.type == 'video') {
-                                    results += '<li><a href="' + link_video + '">' +
-                                        title +
-                                        '</a></li>';
-                                } else {
-                                    results += '<li><a href="' + link_book + '">' +
-                                        title +
-                                        '</a></li>';
-                                }
+                                results += '<li><a href="' + window.location
+                                    .origin +
+                                    '/news-details/' + res.id +
+                                    '">' + title +
+                                    '</a></li>';
 
                             });
                             $('#search_result').append(results);

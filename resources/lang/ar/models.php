@@ -165,6 +165,7 @@ return [
     'our_core_values'  => 'قيمنا الأساسية',
     'learn_more'       => 'لمعرفة المزيد',
     'our_partners'     => 'شركاؤنا',
+    'latest_news'      => 'احدث الاخبار',
 
 
 

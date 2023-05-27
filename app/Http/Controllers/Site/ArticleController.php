@@ -4,56 +4,42 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Contract\ArticleRepositoryInterface;
-use App\Repositories\Contract\ScrapRepositoryInterface;
+use App\Repositories\Contract\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
     protected $articleRepository;
-    protected $scrapRepo;
+    protected $categoryRepo;
 
-    public function __construct(ArticleRepositoryInterface $articleRepository, ScrapRepositoryInterface $scrapRepo)
+    public function __construct(ArticleRepositoryInterface $articleRepository, CategoryRepositoryInterface $categoryRepo)
     {
         $this->articleRepository = $articleRepository;
-        $this->scrapRepo = $scrapRepo;
+        $this->categoryRepo      = $categoryRepo;
     }
 
     public function index()
     {
-        $articles = $this->articleRepository->paginate(2);
+        $articles = $this->articleRepository->getAll();
 
-        $scraps = $this->scrapRepo->getAll();
-
-        return view('site.articles.index', compact('articles', 'scraps'));
+        return view('site.news.index', compact('articles'));
     }
 
     public function show($id)
     {
         $article = $this->articleRepository->findOne($id);
 
-        $share = \Share::currentPage($article->title)
-            ->facebook()
-            ->twitter()
-            ->whatsapp()
-            ->telegram()
-            ->linkedin();
+        $latestArticles = $this->articleRepository->limit(3);
 
-        return view('site.articles.show', compact('article', 'share'));
+        $categories = $this->categoryRepo->getAll();
+
+        return view('site.news.show', compact('article', 'categories', 'latestArticles'));
     }
 
-    public function scrap($id)
+    public function filter($id) // category id
     {
-        $scrap = $this->scrapRepo->findOne($id);
+        $articles = $this->articleRepository->getWhere([['category_id', $id]]);
 
-        $share = \Share::currentPage($scrap->desc)
-            ->facebook()
-            ->twitter()
-            ->whatsapp()
-            ->telegram()
-            ->linkedin();
-
-        return view('site.articles.scrap', compact('scrap', 'share'));
+        return view('site.news.filter', compact('articles'));
     }
 }
