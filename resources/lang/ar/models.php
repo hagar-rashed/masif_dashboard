@@ -185,7 +185,7 @@ return [
     'job_applications'     => 'طلبات التوظيف',
     'zlocation'            => 'الموقع',
     'file'                 => 'الملف',
-
+    'internships'          => 'التدريب',
 
 
 

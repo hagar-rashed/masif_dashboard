@@ -184,6 +184,7 @@ return [
     'job_applications'     => 'Job Applications',
     'zlocation'            => 'Location',
     'file'                 => 'File',
+    'internships'          => 'Internships',
 
 
     // ==========================Settings========================== //

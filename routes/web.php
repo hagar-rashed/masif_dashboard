@@ -120,5 +120,8 @@ Route::middleware('localization')->group(function () {
 
         // search
         Route::get('search', 'HomeController@search')->name('search');
+
+        // internships
+        Route::get('internships', 'JobController@internships')->name('internships.index');
     });
 });

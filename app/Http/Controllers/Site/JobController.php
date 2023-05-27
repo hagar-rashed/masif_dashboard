@@ -51,4 +51,9 @@ class JobController extends Controller
 
         return redirect()->route('site.jobs.show', $id)->with('success', __('models.job_success'));
     }
+
+    public function internships()
+    {
+        return view('site.internships.index');
+    }
 }

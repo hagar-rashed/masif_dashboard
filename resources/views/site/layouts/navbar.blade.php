@@ -12,15 +12,53 @@
                 <div class="col-lg-8">
                     <div class="element">
                         <ul>
-                            <li><a href="{{ route('site.home') }}"> {{ __('models.home') }}</a></li>
-                            <li><a href="{{ route('site.about') }}"> {{ __('models.about_us') }} </a></li>
-                            <li><a href="{{ route('site.solutions') }}">{{ __('models.solutions') }}</a></li>
-                            <li><a href="{{ route('site.sectors') }}">{{ __('models.sectors') }}</a></li>
-                            <li><a href="{{ route('site.partners') }}">{{ __('models.partners') }}</a></li>
-                            <li><a href="{{ route('site.clients') }}">{{ __('models.clients') }}</a></li>
-                            <li><a href="{{ route('site.jobs.index') }}">{{ __('models.jobs') }}</a></li>
-                            <li><a href="{{ route('site.news.index') }}">{{ __('models.news') }}</a></li>
-                            <li><a href="{{ route('site.contact') }}">{{ __('models.contact_us') }}</a></li>
+                            <li>
+                                <a href="{{ route('site.home') }}" class="{{ isActiveRoute('site.home') }}">
+                                    {{ __('models.home') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.about') }}" class="{{ isActiveRoute('site.about') }}">
+                                    {{ __('models.about_us') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.solutions') }}" class="{{ isActiveRoute('site.solutions') }}">
+                                    {{ __('models.solutions') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.sectors') }}" class="{{ isActiveRoute('site.sectors') }}">
+                                    {{ __('models.sectors') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.partners') }}" class="{{ isActiveRoute('site.partners') }}">
+                                    {{ __('models.partners') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.clients') }}" class="{{ isActiveRoute('site.clients') }}">
+                                    {{ __('models.clients') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.jobs.index') }}"
+                                    class="{{ areActiveRoutes(['site.jobs.index', 'site.jobs.show', 'site.jobs.apply']) }}">
+                                    {{ __('models.jobs') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.news.index') }}"
+                                    class="{{ areActiveRoutes(['site.news.index', 'site.news.show', 'site.news.filter']) }}">
+                                    {{ __('models.news') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('site.contact') }}" class="{{ isActiveRoute('site.contact') }}">
+                                    {{ __('models.contact_us') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
