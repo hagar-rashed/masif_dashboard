@@ -162,6 +162,7 @@ return [
     'how_we_do'        => 'How do we do that',
     'why_we_do'        => 'Why do we do that',
     'our_core_values'  => 'Our Core Values',
+    'learn_more'       => 'Learn more',
 
 
     // ==========================Settings========================== //

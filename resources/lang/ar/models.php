@@ -126,7 +126,7 @@ return [
     'add_n_service'    => 'إضافة خدمة جديدة',
     'services'         => 'الخدمات',
     'add_n_solution'   => 'إضافة حل جديد',
-    'solutions'        => 'الحلول',
+    'solutions'        => 'حلول',
     'brands'           => 'الماركات',
     'add_n_brand'      => 'إضافة ماركة جديدة',
     'edit_brand'       => 'تعديل الماركة',
@@ -146,7 +146,7 @@ return [
     'jobs'             => 'الوظائف',
     'add_n_job'        => 'إضافة وظيفة جديدة',
     'edit_job'         => 'تعديل الوظيفة',
-    'sectors'          => 'القطاعات',
+    'sectors'          => 'قطاعات',
     'add_n_sector'     => 'إضافة قطاع جديد',
     'edit_sector'      => 'تعديل القطاع',
     'values'           => 'قيمنا',
@@ -163,6 +163,7 @@ return [
     'how_we_do'        => 'كيف نفعل ذلك',
     'why_we_do'        => 'لماذا نقوم بذلك',
     'our_core_values'  => 'قيمنا الأساسية',
+    'learn_more'       => 'لمعرفة المزيد',
 
 
 
