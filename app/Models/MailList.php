@@ -9,7 +9,5 @@ class MailList extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'fullname', 'email'
-    ];
+    protected $fillable = ['email'];
 }

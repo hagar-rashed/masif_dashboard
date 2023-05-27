@@ -6,13 +6,13 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="element-footer">
-                        <h2> عن الشركة </h2>
+                        <h2> {{ __('models.about_company') }} </h2>
                         <ul>
-                            <li><a href="aboutus.html"> معلومات عنا </a></li>
-                            <li><a href="sectors.html"> حلول </a></li>
-                            <li><a href="partners.html"> شركاء </a></li>
-                            <li><a href="clients.html"> عملاء </a></li>
-                            <li><a href="jobs.html"> وظائف </a></li>
+                            <li><a href="{{ route('site.about') }}"> {{ __('models.about_us') }} </a></li>
+                            <li><a href="{{ route('site.solutions') }}"> {{ __('models.solutions') }} </a></li>
+                            <li><a href="{{ route('site.partners') }}"> {{ __('models.partners') }} </a></li>
+                            <li><a href="{{ route('site.clients') }}"> {{ __('models.clients') }} </a></li>
+                            <li><a href="{{ route('admin.jobs.index') }}"> {{ __('models.jobs') }} </a></li>
                         </ul>
                     </div>
                 </div>
@@ -20,26 +20,20 @@
                     <div class="element-footer">
                         <h2>تواصل معنا</h2>
                         <ul>
-                            <li><a href=""> <i class="bi bi-geo-alt"></i> القاهرة زهراء المعادي شارع كارفور
-                                    الرئيسي عمارة البنك االهلي الدور السابع</a></li>
-                            <li><a href=""> <i class="bi bi-telephone"></i> +20224476876 </a></li>
-                            <li><a href=""> <i class="bi bi-telephone"></i> +20224476876 </a></li>
-                            <li><a href=""> <i class="bi bi-whatsapp"></i> +20224476876 </a></li>
+                            <li><a> <i class="bi bi-geo-alt"></i> {{ getSetting('address') }} </a></li>
+                            <li><a href="tel:{{ getSetting('phone_1') }}"> <i class="bi bi-telephone"></i>
+                                    {{ getSetting('phone_1') }} </a></li>
+                            <li><a href="tel:{{ getSetting('phone_2') }}"> <i class="bi bi-telephone"></i>
+                                    {{ getSetting('phone_2') }} </a></li>
+                            <li><a href="https://wa.me/{{ getSetting('whatsapp') }}"> <i class="bi bi-whatsapp"></i>
+                                    {{ getSetting('whatsapp') }} </a></li>
                         </ul>
                     </div>
                 </div>
 
 
                 <div class="col-lg-4">
-                    <div class="form-footer">
-                        <form action="">
-                            <h2>اشترك </h2>
-                            <div class="input-form-footer">
-                                <input type="email" placeholder="البريد الالكتروني" class="form-control">
-                                <button> <i class="bi bi-arrow-left"></i> </button>
-                            </div>
-                        </form>
-                    </div>
+                    @include('site.includes.mailList')
                 </div>
             </div>
 
@@ -55,14 +49,16 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <p>كل الحقوق محفوظة 2018 &copy; لشركة new cairo</p>
+                        <p>
+                            {{ __('models.all_rights') . ' ' . date('Y') . ' ' . __('models.reserved_to') . ' ' . 'New Cairo' }}
+                        </p>
                     </div>
                     <div class="col-lg-4">
                         <div class="meida-footer">
                             <ul>
-                                <li><a href=""> <i class="bi bi-instagram"></i></a></li>
-                                <li><a href=""> <i class="bi bi-twitter"></i></a></li>
-                                <li><a href=""> <i class="bi bi-facebook"></i> </a></li>
+                                <li><a href="{{ getSetting('instagram') }}"> <i class="bi bi-instagram"></i></a></li>
+                                <li><a href="{{ getSetting('twitter') }}"> <i class="bi bi-twitter"></i></a></li>
+                                <li><a href="{{ getSetting('facebook') }}"> <i class="bi bi-facebook"></i> </a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,9 +95,9 @@
         <i class="bi bi-share"></i>
     </div>
     <ul>
-        <li><a href=""> <i class="bi bi-instagram"></i></a></li>
-        <li><a href=""> <i class="bi bi-twitter"></i></a></li>
-        <li><a href=""> <i class="bi bi-facebook"></i> </a></li>
+        <li><a href="{{ getSetting('instagram') }}"> <i class="bi bi-instagram"></i></a></li>
+        <li><a href="{{ getSetting('twitter') }}"> <i class="bi bi-twitter"></i></a></li>
+        <li><a href="{{ getSetting('facebook') }}"> <i class="bi bi-facebook"></i> </a></li>
     </ul>
 </div>
 
@@ -125,22 +121,22 @@
     <div class="element_menu_responsive">
         <ul>
 
-            <li><a href="index.html"> الصفحة الرئيسية</a></li>
-            <li><a href="aboutus.html">معلومات عنا</a></li>
-            <li><a href="solutions.html">حلول</a></li>
-            <li><a href="sectors.html">قطاعات</a></li>
-            <li><a href="partners.html">شركاء</a></li>
-            <li><a href="clients.html">عملاء</a></li>
+            <li><a href="{{ route('site.home') }}"> {{ __('models.home') }}</a></li>
+            <li><a href="{{ route('site.about') }}"> {{ __('models.about_us') }} </a></li>
+            <li><a href="{{ route('site.solutions') }}">{{ __('models.solutions') }}</a></li>
+            <li><a href="{{ route('site.sectors') }}">{{ __('models.sectors') }}</a></li>
+            <li><a href="{{ route('site.partners') }}">{{ __('models.partners') }}</a></li>
+            <li><a href="{{ route('site.clients') }}">{{ __('models.clients') }}</a></li>
             <li><a href="jobs.html">وظائف</a></li>
-            <li><a href="news.html">الاخبار </a></li>
-            <li><a href="contactus.html">اتصل بنا</a></li>
+            <li><a href="{{ route('site.news.index') }}">{{ __('models.news') }}</a></li>
+            <li><a href="{{ route('site.contact') }}">{{ __('models.contact_us') }}</a></li>
 
             <li>
-                <a class="click-dropdown-mune" href=""> اللغة</a>
+                <a class="click-dropdown-mune" href=""> {{ __('models.lang') }}</a>
                 <div class="dropdowm-language-mune">
                     <ul>
-                        <li><a href="">عربي</a> </li>
-                        <li><a href=""> English</a> </li>
+                        <li><a href="{{ route('language', 'ar') }}">عربي</a> </li>
+                        <li><a href="{{ route('language', 'en') }}"> English</a> </li>
                     </ul>
                 </div>
 

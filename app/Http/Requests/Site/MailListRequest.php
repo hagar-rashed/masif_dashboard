@@ -6,13 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class MailListRequest extends FormRequest
 {
-    public function messages()
-    {
-        return [
-            'email.unique' => 'البريد الالكتروني موجود بالفعل',
-        ];
-    }
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,7 +24,6 @@ class MailListRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required',
             'email' => 'required|email|unique:mail_lists,email',
         ];
     }

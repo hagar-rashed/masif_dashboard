@@ -2,7 +2,7 @@
 {{-- Header --}}
 @slot('header')
 @component('mail::header', ['url' => url('/')])
-{{ getSetting('main_name', app()->getLocale()) }}
+{{ 'New Cairo' }}
 @endcomponent
 @endslot
 
