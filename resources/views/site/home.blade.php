@@ -137,7 +137,7 @@
                                     <p>
                                         {{ strip_tags(Str::limit($item->desc, 53)) }}
                                     </p>
-                                    <a href="news-details.html"> {{ __('models.read_more') }} <i
+                                    <a href="{{ route('site.news.show', $item->id) }}"> {{ __('models.read_more') }} <i
                                             class="bi bi-arrow-left"></i> </a>
                                 </div>
                             </div>

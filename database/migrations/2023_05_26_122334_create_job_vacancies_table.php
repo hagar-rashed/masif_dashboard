@@ -19,6 +19,8 @@ class CreateJobVacanciesTable extends Migration
             $table->string('name_en');
             $table->longText('desc_ar');
             $table->longText('desc_en');
+            $table->longText('requirements_ar');
+            $table->longText('requirements_en');
             $table->timestamps();
         });
     }

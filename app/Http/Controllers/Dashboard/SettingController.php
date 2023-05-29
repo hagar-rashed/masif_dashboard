@@ -30,11 +30,11 @@ class SettingController extends Controller
     {
         $attribute = $request->except('_token', '_method', 'logo', 'footer_logo', 'favicon');
 
-        $logo = $this->settingRepository->getWhere([['key', 'logo']])->first()['value'];
+        $logo        = $this->settingRepository->getWhere([['key', 'logo']])->first()['value'];
         $footer_logo = $this->settingRepository->getWhere([['key', 'footer_logo']])->first()['value'];
-        $favicon = $this->settingRepository->getWhere([['key', 'favicon']])->first()['value'];
-        $main_video = $this->settingRepository->getWhere([['key', 'main_video']])->first()['value'];
-        // $about_image = $this->settingRepository->getWhere([['key', 'about_image']])->first()['value'];
+        $favicon     = $this->settingRepository->getWhere([['key', 'favicon']])->first()['value'];
+        $main_video  = $this->settingRepository->getWhere([['key', 'main_video']])->first()['value'];
+        $map_image   = $this->settingRepository->getWhere([['key', 'map_image']])->first()['value'];
 
         if ($request->has('logo')) {
 
@@ -70,6 +70,15 @@ class SettingController extends Controller
 
             // Upload new internal_image
             $attribute['main_video'] = $request->file('main_video')->store('setting');
+        }
+
+        if ($request->has('map_image')) {
+
+            // Delete old internal_image
+            Storage::delete($map_image);
+
+            // Upload new internal_image
+            $attribute['map_image'] = $request->file('map_image')->store('setting');
         }
 
         $this->settingRepository->updateSetting($attribute);

@@ -14,6 +14,8 @@ class JobVacancy extends Model
         'name_en',
         'desc_ar',
         'desc_en',
+        'requirements_ar',
+        'requirements_en',
     ];
 
     public function getNameAttribute()
@@ -24,6 +26,11 @@ class JobVacancy extends Model
     public function getDescAttribute()
     {
         return $this->{'desc_' . app()->getLocale()};
+    }
+
+    public function getRequirementsAttribute()
+    {
+        return $this->{'requirements_' . app()->getLocale()};
     }
 
     public function jobApplications()

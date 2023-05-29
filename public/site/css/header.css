@@ -59,12 +59,12 @@
     background-color: var(--color-text2);
 }
 
-.element ul li a:hover::after, .element ul li a:hover::before {
+.element ul li a:hover::after, .element ul li a:hover::before , .element ul li a.active::before, .element ul li a.active::after  {
     transform: translateX(0);
     opacity: 1;
 }
 
-.element ul li a:hover {
+.element ul li a:hover ,.element ul li a.active {
     color: var(--color-text2);
 }
 

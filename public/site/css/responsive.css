@@ -247,7 +247,23 @@
   .element {
     display: none;
   }
-
+  
+      .logo-footer {
+        margin: auto;
+        width: 140px;
+    }
+    
+    .meida-footer ul {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        justify-content: center;
+        gap: 10px;
+    }
+    .end-page p {
+    font-size: 16px;
+    margin: 20px 0;
+}
   .sub-partners.mr-section {
     margin: 40px 0;
   }
@@ -348,10 +364,13 @@
   .sub-videos-index {
     height: 245px;
   }
-
+.owl-theme .owl-nav {
+    display: none !important;
+}
   .mr-section {
     margin: 40px 0;
   }
+  
 
   .form-contactus {
     background-color: #F6FCFE;
@@ -432,6 +451,10 @@
     color: var(--color-main);
     font-size: 14px;
   }
+  #app .mr-section {
+    margin: 90px auto;
+    width: 100%;
+}
 }
 
 @media (max-width: 450px) {

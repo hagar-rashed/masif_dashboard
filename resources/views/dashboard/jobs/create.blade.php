@@ -91,6 +91,30 @@
                                                 </div>
                                             </div>
 
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="requirements_ar">{{ __('models.requirements_ar') }}</label>
+                                                    <textarea class="form-control summernote" name="requirements_ar" id="requirements_ar" rows="10">{{ old('requirements_ar') }}</textarea>
+                                                    @error('requirements_ar')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="requirements_en">{{ __('models.requirements_en') }}</label>
+                                                    <textarea class="form-control summernote" name="requirements_en" id="requirements_en" rows="10">{{ old('requirements_en') }}</textarea>
+                                                    @error('requirements_en')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                             <div class="col-12">
                                                 <button type="submit"
                                                     class="btn btn-primary mr-1">{{ __('models.save') }}</button>
@@ -118,6 +142,12 @@
             });
 
             CKEDITOR.replace('desc_en');
+
+            CKEDITOR.replace('requirements_ar', {
+                contentsLangDirection: "rtl"
+            });
+
+            CKEDITOR.replace('requirements_en');
         </script>
     @endpush
 @endsection

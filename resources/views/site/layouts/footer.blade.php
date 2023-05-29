@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="element-footer">
-                        <h2>تواصل معنا</h2>
+                        <h2>{{ __('models.contact_us') }}</h2>
                         <ul>
                             <li><a> <i class="bi bi-geo-alt"></i> {{ getSetting('address') }} </a></li>
                             <li><a href="tel:{{ getSetting('phone_1') }}"> <i class="bi bi-telephone"></i>
@@ -45,8 +45,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="logo-footer">
-                            <a href="index.html">
-                                <img src="images/logo.png" alt="">
+                            <a href="{{ route('site.home') }}">
+                                <img src="{{ asset('storage/' . getSetting('footer_logo')) }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
 
 
 
-
+<p><button id="theme-toggle"><i class="bi bi-moon-fill"></i></button></p>
 
 
 

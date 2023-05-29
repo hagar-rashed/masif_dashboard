@@ -3713,3 +3713,32 @@ tr.group {
   background-color : #B8C2CC !important;
   opacity : 1;
 }
+
+
+
+
+a.navbar-brand img {
+  margin: auto;
+  width: 70%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
+.main-menu .navbar-header {
+    height: 100%;
+    width: 250px;
+    height: 157px;
+}
+
+
+
+.card {
+  padding: 20px;
+}
+
+.main-menu .main-menu-content {
+    height: calc(100% - 202px) !important;
+    position: relative;
+}

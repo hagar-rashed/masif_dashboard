@@ -12,7 +12,7 @@
 
                 @foreach ($clients as $client)
                     <div class="item">
-                        <a href="">
+                        <a href="{{ $client->link }}">
                             <div class="img-clinet-index">
                                 <img src="{{ asset('storage/' . $client->image) }}" alt="">
                             </div>

@@ -46,7 +46,7 @@
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile"
+                                                    <input class="form-control image" accept="image/*" type="file" id="formFile"
                                                         name="image">
                                                     @error('image')
                                                         <span class="alert alert-danger">

@@ -16,11 +16,44 @@
                 <h2> {{ $job->name }} </h2>
                 <span></span>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="text-sub-jops-details" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="800">
+            <div class="sub-jops-details">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-sub-jops-details" data-aos="fade-left" data-aos-easing="linear"
+                            data-aos-duration="800">
+                            <h2>{{ __('models.job_description') }} :</h2>
+                            {!! $job->desc !!}
+                        </div>
+                    </div>
 
-                        {!! $job->desc !!}
+                    <div class="col-lg-6">
+                        <div class="img-jops-details" data-aos="fade-right" data-aos-easing="linear"
+                            data-aos-duration="800">
+                            <object data="{{ url('site') }}/svg/j-1.svg" type="">
+                                <img src="{{ url('site') }}/svg/j-1.svg" alt="">
+                            </object>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-jops-details">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-sub-jops-details" data-aos="fade-left" data-aos-easing="linear"
+                            data-aos-duration="800">
+                            <h2>{{ __('models.work_requirements') }} :</h2>
+
+                            {!! $job->requirements !!}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="img-jops-details" data-aos="fade-right" data-aos-easing="linear"
+                            data-aos-duration="800">
+                            <object data="{{ url('site') }}/svg/j-2.svg" type="">
+                                <img src="{{ url('site') }}/svg/j-2.svg" alt="">
+                            </object>
+                        </div>
                     </div>
                 </div>
             </div>

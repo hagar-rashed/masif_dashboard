@@ -20,7 +20,7 @@
                         <div class="text-news-details">
                             <h2>{{ $article->title }}</h2>
                             <p>
-                                {{ $article->desc }}
+                                {!! $article->desc !!}
                             </p>
                         </div>
                     </div>

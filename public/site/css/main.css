@@ -257,7 +257,7 @@
 }
 
 .sub-news-index {
-    height: 470px;
+    height: 400px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -870,7 +870,6 @@ button.owl-next {
     position: relative;
 }
 
-.text-sub-jops-details p::after,
 .text-sub-jops-details h3::after,
 .text-sub-jops-details h4::after {
     content: "";
@@ -996,35 +995,54 @@ section.sectors {
 .pagination {
     margin: 60px 0 0;
 }
-
-.pagination ul {
+.pagination {
     display: flex;
     gap: 10px;
     align-items: center;
-
-}
-
-.pagination ul li a {
-    display: flex;
-    align-items: center;
-    width: 45px;
-    height: 45px;
     justify-content: center;
-    font-size: 22px;
-    background: #FFFFFF;
-    border: 1px solid #DFE3E8;
-    border-radius: 4px;
 }
+.pagination  li a  , .pagination  li span  {
+    display: flex  !important;
+    align-items: center  !important;
+    width: 45px  !important;
+    height: 45px  !important;
+    justify-content: center  !important;
+    font-size: 22px  !important;
+    background: #FFFFFF  !important;
+    border: 1px solid #DFE3E8  !important;
+    border-radius: 4px  !important;
+} 
 
-.pagination ul li a.active {
-    background-color: var(--color-text2);
-    border-radius: 50%;
-    color: var(--color-white);
-    border: none;
+.pagination  li.active a , .pagination  li.active span {
+    background-color: var(--color-text2)  !important;
+    border-radius: 50% !important;
+    color: var(--color-white)  !important;
+    border: none  !important;
 
 }
-
-.pagination ul li a i {
+.pagination  li:last-of-type {
+    display: flex  !important;
+    align-items: center  !important;
+    width: 45px  !important;
+    height: 45px  !important;
+    justify-content: center  !important;
+    font-size: 22px  !important;
+    background: #FFFFFF  !important;
+    border: 1px solid #DFE3E8  !important;
+    border-radius: 4px  !important;
+}
+li.not-active {  
+    display: flex  !important;
+    align-items: center  !important;
+    width: 45px  !important;
+    height: 45px  !important;
+    justify-content: center  !important;
+    font-size: 22px  !important;
+    background: #FFFFFF  !important;
+    border: 1px solid #DFE3E8  !important;
+    border-radius: 4px  !important;
+}
+.pagination  li a i {
     line-height: 0;
     color: #121212;
 }
@@ -1360,4 +1378,128 @@ section.sectors {
     position: fixed;
     bottom: 68px;
     right: 20px;
+}
+
+
+#app .mr-section {
+    margin: 90px auto;
+    width: 95%;
+}
+.logo-partners {
+    max-width: 140px;
+    display: block;
+    margin: 10px auto 20px;
+}
+
+#theme-toggle {
+    width: 65px;
+    position: fixed;
+    bottom: 68px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    transition: all .3s linear;
+    height: 65px;
+    cursor: pointer;
+    color: #000;
+    border: navajowhite;
+    border-radius: 50%;
+    background-color: #B1DFF7;
+    box-shadow: 0 2px 3px #00000031;
+}
+body.dark {
+    color: var(--color-white) !important;
+	background-color: #1E1E1E;
+}
+body.dark a {
+    color: var(--color-white) ;
+}
+
+body.dark .text-aboutus-index p {
+        color: var(--color-white) !important;
+}
+
+body.dark .end-page p {
+    font-size: 20px;
+        color: var(--color-white) !important;
+    text-align: center;
+}
+.dropdowm-element ul li a, .dropdowm-language ul li a {
+    color: var(--color-main) !important;
+}
+body.dark .text-aboutus p {
+ color: var(--color-white) !important;
+}
+body.dark .text-sectors h2 {
+    font-size: 24px;
+    font-family: "font_bold";
+    color: var(--color-main);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-text2);
+    margin-bottom: 20px;
+}
+
+body.dark #theme-toggle {;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0 2px 3px #ffffff52;
+}
+body.dark .text-partners p {
+    font-size: 21px;
+    line-height: 40px;
+    color: var(--color-white);
+    margin: 30px 0 0;
+}
+body.dark  .pagination li a, .pagination li span {
+    color: #000 !important;
+}
+body.dark  .sub-jops p {
+    color: var(--color-white);
+}
+body.dark .text-news h2 {
+    color: var(--color-main);
+    font-family: "font_bold";
+    font-size: 20px;
+}
+body.dark .upload-form label {
+    width: 100%;
+    color: var(--color-main) !important;
+    margin-bottom: 0 !important;
+}
+body.dark .input-form label {
+    font-size: 20px;
+    color: var(--color-main) !important;
+
+    font-family: "font_bold";
+}
+
+body.dark .form-contactus {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+}
+#theme-toggle {
+    z-index: 9999;
+}
+.text-sub-jops-details p, .text-sub-jops-details h3, .text-sub-jops-details h4 {
+    color: var(--color-main);
+}
+
+.text-partners p {
+    font-size: 18px;
+    line-height: 37px;
+}
+
+ul#search_result {
+    position: absolute;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 3px #00000029;
+    background: #fff;
+}
+ul#search_result li {
+    border-bottom: 1px solid var(--color-main);
+    padding: 10px 0;
 }

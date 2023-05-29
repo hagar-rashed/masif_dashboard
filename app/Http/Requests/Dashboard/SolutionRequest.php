@@ -30,7 +30,7 @@ class SolutionRequest extends FormRequest
                     'name_en' => 'required|string|max:255',
                     'desc_ar' => 'required',
                     'desc_en' => 'required',
-                    'image'   => 'nullable|image|mimes:png,jpg',
+                    'image'   => 'nullable|image|mimes:png,jpg,svg',
                 ];
                 break;
 
@@ -40,7 +40,7 @@ class SolutionRequest extends FormRequest
                     'name_en' => 'required|string|max:255',
                     'desc_ar' => 'required',
                     'desc_en' => 'required',
-                    'image'   => 'required|image|mimes:png,jpg',
+                    'image'   => 'required|image|mimes:png,jpg,svg',
                 ];
                 break;
         }

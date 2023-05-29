@@ -185,6 +185,10 @@ return [
     'zlocation'            => 'Location',
     'file'                 => 'File',
     'internships'          => 'Internships',
+    'job_description'      => 'Job Description',
+    'work_requirements'    => 'Work Requirements',
+    'requirements_ar'      => 'Work requirements in arabic',
+    'requirements_en'      => 'Work requirements in english',
 
 
     // ==========================Settings========================== //
@@ -211,6 +215,7 @@ return [
     'how_we_do_ar'  => 'How We Do It (in Arabic)',
     'how_we_do_en'  => 'How We Do It (in English)',
     'why_we_do_ar'  => 'Why We Do It (in Arabic)',
-    'why_we_do_en'  => 'Why We Do It (in English)'
+    'why_we_do_en'  => 'Why We Do It (in English)',
+    'map_image'     => 'Map Image',
 
 ];

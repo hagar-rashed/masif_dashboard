@@ -24,7 +24,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = $this->brandRepo->getWhere([['type', 'customer']]);
+        $customers = $this->brandRepo->getWhere([['type', 'client']]);
 
         return view('dashboard.customers.index', compact('customers'));
     }

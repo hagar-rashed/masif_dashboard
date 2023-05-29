@@ -48,7 +48,7 @@ class HomeController extends Controller
 
         $news = $this->articleRepo->limit(5);
 
-        $clients = $this->brandRepo->limit(12);
+        $clients = $this->brandRepo->limitGetWhere([['type', 'client']], 12)->get();
 
         return view('site.home', compact('services', 'news', 'clients'));
     }
@@ -57,7 +57,7 @@ class HomeController extends Controller
     {
         $values = $this->valueRepo->getAll();
 
-        $clients = $this->brandRepo->limit(12);
+        $clients = $this->brandRepo->limitGetWhere([['type', 'client']], 12)->get();
 
         return view('site.about', compact('values', 'clients'));
     }
@@ -66,7 +66,7 @@ class HomeController extends Controller
     {
         $solutions = $this->solutionRepo->getAll(['column' => 'id', 'dir' => 'ASC']);
 
-        $clients = $this->brandRepo->limit(12);
+        $clients = $this->brandRepo->limitGetWhere([['type', 'client']], 12)->get();
 
         return view('site.solutions', compact('solutions', 'clients'));
     }

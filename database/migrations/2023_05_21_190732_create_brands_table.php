@@ -17,8 +17,8 @@ class CreateBrandsTable extends Migration
             $table->id();
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->string('desc_ar')->nullable();
-            $table->string('desc_en')->nullable();
+            $table->longText('desc_ar')->nullable();
+            $table->longText('desc_en')->nullable();
             $table->string('image');
             $table->string('media')->nullable();
             $table->string('type');

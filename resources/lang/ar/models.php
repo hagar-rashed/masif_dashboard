@@ -186,6 +186,10 @@ return [
     'zlocation'            => 'الموقع',
     'file'                 => 'الملف',
     'internships'          => 'التدريب',
+    'job_description'      => 'وصف الوظيفة',
+    'work_requirements'    => 'متطلبات العمل',
+    'requirements_ar'      => 'متطلبات العمل بالعربية',
+    'requirements_en'      => 'متطلبات العمل بالإنجليزية',
 
 
 
@@ -215,6 +219,7 @@ return [
     'how_we_do_en'  => 'كيف نفعل ذلك (بالإنجليزية)',
     'why_we_do_ar'  => 'لماذا نفعل ذلك (بالعربية)',
     'why_we_do_en'  => 'لماذا نفعل ذلك (بالإنجليزية)',
+    'map_image'     => 'صورة الخريطة',
 
 
 ];

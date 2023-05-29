@@ -122,9 +122,8 @@
 
                     <div class="col-lg-6">
                         <div class="map">
-                            <a href="https://www.google.com/maps/place/29%C2%B058'26.3%22N+31%C2%B018'55.1%22E/@29.9724467,31.3107691,16.5z/data=!4m4!3m3!8m2!3d29.9739722!4d31.3153056?hl=en"
-                                target="_blank">
-                                <img src="{{ url('site') }}/images/map.png" alt="">
+                            <a href="{{ getSetting('location') }}" target="_blank">
+                                <img src="{{ asset('storage/' . getSetting('map_image')) }}" alt="">
                             </a>
                         </div>
                     </div>
