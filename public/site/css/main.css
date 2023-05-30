@@ -1480,6 +1480,10 @@ body.dark .form-contactus {
     padding: 30px;
     border-radius: 5px;
 }
+
+body.dark  .sub-services-index h2 {
+    color: var(--color-main);
+}
 #theme-toggle {
     z-index: 9999;
 }
@@ -1502,4 +1506,58 @@ ul#search_result {
 ul#search_result li {
     border-bottom: 1px solid var(--color-main);
     padding: 10px 0;
+}
+.navicon {
+    color: var(--color-main);
+    cursor: pointer;
+    display: block;
+    height: 26px;
+    transform: rotate(0deg) scaleX(-1);
+    transition: 0.2s ease-in-out;
+    width: 100%;
+}
+.logo {
+    width: 170px;
+    max-width: 140px;
+}
+.text-sectors a {
+    color: var(--color-text2) !important;
+}
+ul.pagination li {
+    color: #000;
+}
+
+body.dark .text-sub-jops-details p,body.dark .text-sub-jops-details h3, body.dark .text-sub-jops-details h4 {
+    color:#fff;
+}
+body.dark .search-new, body.dark .element-news, body.dark .last-news {
+    background: transparent;
+    border: 1px solid #fff;
+}
+body.dark .text-last-news p {
+    color: #fff;
+}
+body.dark  .text-news-details p {
+    color: var(--color-white);
+}
+body.dark ul#search_result li a  {
+        color: var(--color-main);
+}
+
+body.dark ul#search_result li {
+    border-bottom: 1px solid var(--color-main);
+    padding: 10px 0;
+    color: var(--color-main);
+}
+body.dark .element-news ul li a {
+    color: var(--color-white);
+}
+body.dark .text-sub-jops-details ul li::after {
+    background-color: #fff;
+}
+body.dark .logo-partners img {
+    filter: brightness(0) invert(1);
+}
+.loader-wrap {
+    z-index: 9999999999999999999999999999999999;
 }

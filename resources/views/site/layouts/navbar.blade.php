@@ -38,7 +38,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('site.clients') }}" class="{{ isActiveRoute('site.clients') }}">
+                                <a href="{{ route('site.clients') }}">
                                     {{ __('models.clients') }}
                                 </a>
                             </li>

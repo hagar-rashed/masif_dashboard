@@ -248,6 +248,12 @@
     display: none;
   }
   
+  .menu_responsive {
+    left: 0;
+    right: auto;
+    transform: translateX(-102%);
+    display: flex ;
+}
       .logo-footer {
         margin: auto;
         width: 140px;

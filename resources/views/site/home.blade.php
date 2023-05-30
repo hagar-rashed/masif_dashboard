@@ -33,7 +33,7 @@
                         </p>
 
 
-                        <a href="aboutus.html" class="ctm-btn"> {{ __('models.read_more') }} <i
+                        <a href="{{ route('site.about') }}" class="ctm-btn"> {{ __('models.read_more') }} <i
                                 class="bi bi-arrow-left"></i>
                         </a>
                     </div>

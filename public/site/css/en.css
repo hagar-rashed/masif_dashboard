@@ -100,10 +100,18 @@ li.not-active {
     transform: translateX(-102%);
 }
 
+.menu_responsive {
+    display: none;
+}
 
+.owl-nav {
+    justify-content: start;
+}
 
-
-
+.title-start1::after {
+    left: 0;
+    right: auto;
+}
 
 
 @media (max-width: 992px) {
