@@ -63,7 +63,7 @@
                                                 <td>{{ $article->category->name }}</td>
                                                 <td>{!! strip_tags(Str::words($article->desc, 15)) !!}</td>
                                                 <td>
-                                                    <img src="{{ asset('storage/' . $article->image) }}"
+                                                    <img src="{{ asset('storage/' . $article->first_image) }}"
                                                         style="width: 80px; height: auto;">
                                                 </td>
                                                 <td class="text-center">

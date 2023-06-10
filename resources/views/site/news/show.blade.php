@@ -14,9 +14,18 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="sub-news-details">
-                        <div class="img-news-details">
-                            <img src="{{ asset('storage/' . $article->image) }}" alt="">
+                        <div class="owl-carousel owl-theme maincarousel" id="slider-news-details">
+                            @foreach (json_decode($article->images) as $image)
+                                <div class="item">
+                                    <div class="img-news-details">
+                                        <img src="{{ asset('storage/' . $image) }}" alt="">
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
+
+
+                        {{-- <img src="{{ asset('storage/' . $article->image) }}" alt=""> --}}
                         <div class="text-news-details">
                             <h2>{{ $article->title }}</h2>
                             <p>
@@ -59,7 +68,7 @@
                                 <li>
                                     <a href="{{ route('site.news.show', $item->id) }}">
                                         <div class="img-last-news">
-                                            <img src="{{ asset('storage/' . $item->image) }}" alt="">
+                                            <img src="{{ asset('storage/' . $item->first_image) }}" alt="">
                                         </div>
                                         <div class="text-last-news">
                                             <h2>{{ $item->title }}</h2>

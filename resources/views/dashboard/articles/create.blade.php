@@ -41,13 +41,31 @@
                                         @csrf
                                         <div class="row">
 
-                                            <div class="col-6">
+                                            {{-- <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
                                                     <input class="form-control image" accept="image/png, image/jpeg"
                                                         type="file" id="formFile" name="image">
                                                     @error('image')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group prev">
+                                                    <img src="" style="width: 100px"
+                                                        class="img-thumbnail preview-formFile" alt="">
+                                                </div>
+                                            </div> --}}
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="formFile"
+                                                        class="form-label">{{ __('models.images') }}</label>
+                                                    <input class="form-control images" accept="image/png, image/jpeg"
+                                                        type="file" id="formFile" name="images[]" multiple>
+                                                    @error('images')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
@@ -159,6 +177,27 @@
             });
 
             CKEDITOR.replace('desc_en');
+
+            // ================================= //
+
+            // Function to display image previews
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('.prev').html('<img src="' + e.target.result +
+                            '" style="width: 100px" class="img-thumbnail preview-formFile" alt="">');
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            // Event listener for file input change
+            $('.images').change(function() {
+                readURL(this);
+            });
         </script>
     @endpush
 @endsection

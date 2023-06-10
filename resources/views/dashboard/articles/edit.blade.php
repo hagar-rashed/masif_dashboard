@@ -42,7 +42,7 @@
                                         @method('PATCH')
                                         <div class="row">
 
-                                            <div class="col-6">
+                                            {{-- <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="formFile"
                                                         class="form-label">{{ __('models.image') }}</label>
@@ -58,6 +58,38 @@
                                                     <img src="{{ asset('storage/' . $article->image) }}"
                                                         style="width: 100px" class="img-thumbnail preview-formFile"
                                                         alt="">
+                                                </div>
+                                            </div> --}}
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="formFile"
+                                                        class="form-label">{{ __('models.images') }}</label>
+                                                    <input class="form-control images" accept="image/png, image/jpeg"
+                                                        type="file" id="formFile" name="images[]" multiple>
+                                                    @error('images')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group prev" style="display: flex; flex-wrap: wrap;">
+                                                    @if ($article->images)
+                                                        @foreach (json_decode($article->images) as $index => $image)
+                                                            <div class="image-container" data-image-id="{{ $index }}"
+                                                                style="display: inline-block; margin-right: 10px; margin-bottom: 10px;">
+                                                                <img src="{{ asset('storage/' . $image) }}"
+                                                                    style="width: 100px; margin-right: 10px; margin-top: 5px;"
+                                                                    class="img-thumbnail" alt="">
+
+                                                                <button type="button" class="btn btn-danger delete-image"
+                                                                    data-url="{{ route('admin.delete-image') }}"
+                                                                    data-index="{{ $index }}"><i
+                                                                        class="fas fa-trash"></i></button>
+
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -162,6 +194,60 @@
             });
 
             CKEDITOR.replace('desc_en');
+
+            // ========================== //
+
+            // Function to display image previews
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('.prev').html('<img src="' + e.target.result +
+                            '" style="width: 100px" class="img-thumbnail preview-formFile" alt="">');
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            // Event listener for file input change
+            $('.images').change(function() {
+                readURL(this);
+            });
+
+
+
+
+            // ================================================================ //
+
+            $(document).ready(function() {
+                $('.delete-image').on('click', function() {
+                    var imageId = $(this).data('image-id');
+                    var url = $(this).data('url');
+                    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                    var $imageContainer = $(this).closest(
+                        '.image-container'); // Store the reference to the image container
+
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: {
+                            article_id: "{{ $article->id }}",
+                            image_id: imageId,
+                            _token: csrfToken
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            // Image deleted successfully, remove the image container
+                            $imageContainer.remove();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                });
+            });
         </script>
     @endpush
 @endsection

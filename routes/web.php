@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AuthController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
 
 // Localization Routes
 Route::get('language/{locale}', function ($locale) {
@@ -48,6 +54,7 @@ Route::middleware('localization')->group(function () {
         Route::resource('categories', 'CategoryController');
 
         Route::resource('articles', 'ArticleController');
+        Route::post('/delete-image', 'ArticleController@deleteImage')->name('delete-image');
 
         Route::resource('services', 'ServiceController');
 
@@ -60,6 +67,7 @@ Route::middleware('localization')->group(function () {
         Route::resource('partners', 'PartnerController');
 
         Route::resource('clients', 'CustomerController');
+        Route::delete('delete-client/{id}', 'CustomerController@destroy')->name('clients.delete');
 
         Route::resource('jobs', 'JobVacancyController');
 

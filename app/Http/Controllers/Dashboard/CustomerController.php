@@ -130,9 +130,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $customer = $this->brandRepo->findOne($request->id);
+        $customer = $this->brandRepo->findOne($id);
 
         if ($customer->image) {
             Storage::delete($customer->image);
@@ -140,8 +140,8 @@ class CustomerController extends Controller
 
         $customer->delete();
 
-        return \response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ]);
+        return redirect()->back()->with('success', __('models.deleted_success'));
+
+
     }
 }

@@ -55,7 +55,7 @@
                                     <tbody>
                                         @foreach ($customers as $customer)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $customer->id }}</td>
                                                 <td>
                                                     <img src="{{ asset('storage/' . $customer->image) }}"
                                                         style="width: 100px; height: auto;">
@@ -70,10 +70,16 @@
                                                         <a href="{{ route('admin.clients.edit', $customer->id) }}"
                                                             class="btn btn-sm btn-primary"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('admin.clients.destroy', $customer->id) }}"
-                                                            data-id="{{ $customer->id }}"
-                                                            class="btn btn-sm btn-danger item-delete"><i
-                                                                class="fa-solid fa-trash-can"></i></a>
+
+                                                        <form action="{{ route('admin.clients.destroy', $customer->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-danger"><i
+                                                                    class="fa-solid fa-trash-can"></i></button>
+                                                        </form>
+
+
                                                     </div>
                                                 </td>
                                             </tr>

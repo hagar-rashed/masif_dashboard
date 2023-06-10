@@ -16,6 +16,7 @@ class Article extends Model
         'desc_ar',
         'desc_en',
         'image',
+        'images',
         'category_id',
     ];
 
@@ -63,6 +64,18 @@ class Article extends Model
 
         // Use `translatedFormat()` to get a translated date string
         return $dateFromat->translatedFormat($format);
+    }
+
+    public function getFirstImageAttribute()
+    {
+        $images = json_decode($this->images, true);
+
+        if (!empty($images)) {
+            $firstImage = reset($images);
+            return $firstImage;
+        }
+
+        return null;
     }
 
     public function category()

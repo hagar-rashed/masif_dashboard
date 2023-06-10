@@ -40,7 +40,7 @@ class ArticleRequest extends FormRequest
                     'desc_ar'     => 'required',
                     'desc_en'     => 'required',
                     'category_id' => 'required',
-                    'image'       => 'required|image|mimes:jpeg,png,jpg',
+                    'image'       => 'nullable|image|mimes:jpeg,png,jpg',
                 ];
                 break;
 
