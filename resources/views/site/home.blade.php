@@ -33,8 +33,7 @@
                         </p>
 
 
-                        <a href="{{ route('site.about') }}" class="ctm-btn"> {{ __('models.read_more') }} <i
-                                class="bi bi-arrow-left"></i>
+                        <a href="{{ route('site.about') }}" class="ctm-btn"> {{ __('models.read_more') }} <i class="fas fa-long-arrow-alt-left"></i>
                         </a>
                     </div>
                 </div>
@@ -137,8 +136,7 @@
                                     <p>
                                         {{ strip_tags(Str::limit($item->desc, 53)) }}
                                     </p>
-                                    <a href="{{ route('site.news.show', $item->id) }}"> {{ __('models.read_more') }} <i
-                                            class="bi bi-arrow-left"></i> </a>
+                                    <a href="{{ route('site.news.show', $item->id) }}"> {{ __('models.read_more') }} <i class="fas fa-long-arrow-alt-left"></i> </a>
                                 </div>
                             </div>
                         </div>

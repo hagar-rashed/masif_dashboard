@@ -210,6 +210,8 @@ return [
     'instagram'     => 'Instagram',
     'facebook'      => 'Facebook',
     'twitter'       => 'Twitter',
+    'linkedin'      => 'Linkedin',
+    'messenger'     => 'Messenger',
     'what_we_do_ar' => 'What We Are Doing (in Arabic)',
     'what_we_do_en' => 'What We Are Doing (in English)',
     'how_we_do_ar'  => 'How We Do That (in Arabic)',

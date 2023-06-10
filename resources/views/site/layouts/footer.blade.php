@@ -58,9 +58,10 @@
                     <div class="col-lg-4">
                         <div class="meida-footer">
                             <ul>
-                                <li><a href="{{ getSetting('instagram') }}"> <i class="bi bi-instagram"></i></a></li>
-                                <li><a href="{{ getSetting('twitter') }}"> <i class="bi bi-twitter"></i></a></li>
-                                <li><a href="{{ getSetting('facebook') }}"> <i class="bi bi-facebook"></i> </a></li>
+                                <li><a href="{{ getSetting('linkedin') }}"> <i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="{{ getSetting('messenger') }}"> <i
+                                            class="fab fa-facebook-messenger"></i></a></li>
+                                <li><a href="{{ getSetting('facebook') }}"> <i class="fab fa-facebook-f"></i> </a></li>
                             </ul>
                         </div>
                     </div>
@@ -94,22 +95,28 @@
 
 <div class="media-icons">
     <div class="click-media-icons">
-        <i class="bi bi-share"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share"
+            viewBox="0 0 16 16">
+            <path
+                d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+        </svg>
     </div>
     <ul>
-        <li><a href="{{ getSetting('instagram') }}"> <i class="bi bi-instagram"></i></a></li>
-        <li><a href="{{ getSetting('twitter') }}"> <i class="bi bi-twitter"></i></a></li>
-        <li><a href="{{ getSetting('facebook') }}"> <i class="bi bi-facebook"></i> </a></li>
+        <li><a href="{{ getSetting('linkedin') }}"> <i class="fab fa-linkedin"></i></a></li>
+        <li><a href="{{ getSetting('messenger') }}"> <i class="fab fa-facebook-messenger"></i></a></li>
+        <li><a href="{{ getSetting('facebook') }}"> <i class="fab fa-facebook-f"></i> </a></li>
     </ul>
 </div>
 
 
 
 <p><button id="theme-toggle">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-      </svg>
-</button></p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-moon-fill" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+        </svg>
+    </button></p>
 
 
 

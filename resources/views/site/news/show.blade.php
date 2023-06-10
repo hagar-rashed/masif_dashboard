@@ -42,7 +42,7 @@
                         <div class="form-search">
                             <input type="text" id="input_search" data-url="{{ route('site.search') }}"
                                 class="form-control" name="search">
-                            <button> <i class="bi bi-search"></i></button>
+                            <button> <i class="fas fa-search"></i></button>
 
                             <div class="details_search" style="display: none;">
                                 <ul id="search_result">

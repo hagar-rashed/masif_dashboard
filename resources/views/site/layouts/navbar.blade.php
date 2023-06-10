@@ -68,7 +68,7 @@
                     <div class="language">
                         <a href="">
                             {{ app()->getLocale() === 'ar' ? 'العربية' : 'English' }}
-                            <i class="bi bi-caret-down-fill"></i>
+                            <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdowm-language">
                             <ul>

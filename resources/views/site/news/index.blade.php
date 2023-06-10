@@ -37,7 +37,7 @@
                                     {{ strip_tags(Str::limit($article->desc, 100)) }}
                                 </p>
                                 <a href="{{ route('site.news.show', $article->id) }}" class="ctm-btn">
-                                    {{ __('models.read_more') }} <i class="bi bi-arrow-left"></i></a>
+                                    {{ __('models.read_more') }} <i class="fas fa-long-arrow-alt-left"></i></a>
                             </div>
                         </div>
                     </div>
