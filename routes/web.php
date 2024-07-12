@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\TripController ;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::resource('trips', TripController::class);
+Route::get('createTrip', [TripController::class, 'create'])->name('createTrip');
+Route::post('storeTrip', [TripController::class, 'store'])->name('storeTrip');
+Route::get('tripIndex', [TripController::class, 'index'])->name('tripIndex');
+Route::get('editTrip/{id}', [TripController::class, 'edit'])->name('editTrip');
+Route::put('updateTrip/{id}', [TripController::class, 'update'])->name('updateTrip');
+Route::delete('destroyTrip/{id}', [TripController::class, 'destroy'])->name('destroyTrip');
 
 Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');
@@ -132,4 +140,8 @@ Route::middleware('localization')->group(function () {
         // internships
         Route::get('internships', 'JobController@internships')->name('internships.index');
     });
+
+
+
+
 });

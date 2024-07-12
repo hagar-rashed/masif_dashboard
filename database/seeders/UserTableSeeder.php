@@ -17,6 +17,8 @@ class UserTableSeeder extends Seeder
         User::insert(
             [
                 'name' => 'مؤسس النظام',
+                'user_name'=>'admin',
+                'image'=>'b',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('password'),
                 'isVerified' => 1,
