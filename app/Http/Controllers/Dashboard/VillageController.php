@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\VallageRequest;
+use App\Http\Requests\Dashboard\VillageRequest;
 use App\Repositories\Contract\VallageRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class VallageController extends Controller
+class VillageController extends Controller
 {
     protected $vallageRepo;
 
@@ -23,9 +23,9 @@ class VallageController extends Controller
      */
     public function index()
     {
-        $vallages = $this->vallageRepo->getAll();
+        $villages = $this->vallageRepo->getAll();
 
-        return view('dashboard.vallages.index', compact('vallages'));
+        return view('dashboard.vallages.index', compact('villages'));
     }
 
     /**
@@ -44,14 +44,21 @@ class VallageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VillageRequest $request)
     {
         $data = $request->all();
 
         $vallage = $this->vallageRepo->create($data);
-       var_dump('good');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('vallages', 'public');
+                $vallage->images()->create([
+                    'path' => $path,
+                ]);
+            }
+        }
         if ($vallage) {
-            return redirect()->route('admin.vallages.index')->with('success', __('models.added_success'));
+            return redirect()->route('admin.villages.index')->with('success', __('models.added_success'));
          } else {
              return redirect()->back()->with('error', 'حدث خطأ أثناء الإضافة');
         }
@@ -76,10 +83,10 @@ class VallageController extends Controller
      */
     public function edit($id)
     {
-        $vallage = $this->vallageRepo->findOne($id);
+        $village = $this->vallageRepo->findOne($id);
 
-        if ($vallage) {
-            return view('dashboard.vallages.edit', compact('vallage'));
+        if ($village) {
+            return view('dashboard.vallages.edit', compact('village'));
         } else {
             return view('dashboard.error');
         }
@@ -92,26 +99,31 @@ class VallageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VallageRequest $request, $id)
+    public function update(VillageRequest $request, $id)
     {
-        $vallage = $this->vallageRepo->findOne($id);
+        $village = $this->vallageRepo->findOne($id);
 
         $data = $request->except('_token', '_method');
 
-        if ($request->hasFile('image')) {
+        $village->update($data);
 
-            Storage::delete($vallage->image);
-
-            $data['image'] = $request->file('image')->store('vallages');
-        } else {
-
-            $data['image'] = $vallage->image;
+        if ($request->hasFile('images')) {
+            // Delete existing images
+            foreach ($village->images as $image) {
+                Storage::disk('public')->delete($image->path);
+                $image->delete();
+            }
+            // Upload new images
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('villages', 'public');
+                $village->images()->create([
+                    'path' => $path,
+                ]);
+            }
         }
 
-        $vallage->update($data);
-
-        if ($vallage) {
-            return redirect()->route('admin.vallages.index')->with('success', __('models.update_success'));
+        if ($village) {
+            return redirect()->route('admin.villages.index')->with('success', __('models.update_success'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ أثناء التعديل');
         }
@@ -125,13 +137,15 @@ class VallageController extends Controller
      */
     public function destroy(Request $request)
     {
-        $vallage = $this->vallageRepo->findOne($request->id);
+        $village = $this->vallageRepo->findOne($request->id);
 
-        if ($vallage->image) {
-            Storage::delete($vallage->image);
+        // Delete associated images
+        foreach ($village->images as $image) {
+            Storage::disk('public')->delete($image->path);
+            $image->delete();
         }
 
-        $vallage->delete();
+        $village->delete();
 
         return \response()->json([
             'message' => 'تم الحذف بنجاح',

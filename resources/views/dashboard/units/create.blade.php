@@ -3,6 +3,7 @@
 @section('title', __('models.add_n_service'))
 
 @section('content')
+@section('content')
    <!-- BEGIN: Content-->
    <div class="app-content content">
     <div class="content-overlay"></div>
@@ -14,8 +15,8 @@
                     <div class="col-12">
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.villages.index') }}">{{ __('models.values') }}</a></li>
-                                <li class="breadcrumb-item active">{{ __('models.add_n_value') }}</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.units.index') }}">{{ __('models.units') }}</a></li>
+                                <li class="breadcrumb-item active">{{ __('models.add_n_unit') }}</li>
                             </ol>
                         </div>
                     </div>
@@ -29,16 +30,33 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="card-title">{{ __('models.add_n_value') }}</h2>
+                                <h2 class="card-title">{{ __('models.add_n_unit') }}</h2>
                             </div>
                             <div class="card-body">
-                                <form class="form form-vertical" id="createVillageForm" action="{{ route('admin.villages.store') }}" method="POST" enctype="multipart/form-data">
+                                <form class="form form-vertical" id="createUnitForm" action="{{ route('admin.units.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="name_ar">{{ __('models.title_ar') }}</label>
+                                                <label for="village_id">{{ __('models.village') }}</label>
+                                                <select class="form-control" name="village_id">
+                                                    @foreach($villages as $village)
+                                                        <option value="{{ $village->id }}" {{ old('village_id') == $village->id ? 'selected' : '' }}>
+                                                            {{ $village->{'name_'.app()->getLocale()} }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('village_id')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="name_ar">{{ __('models.name_ar') }}</label>
                                                 <input type="text" id="name_ar" class="form-control" name="name_ar" value="{{ old('name_ar') }}" />
                                                 @error('name_ar')
                                                     <span class="alert alert-danger">
@@ -50,7 +68,7 @@
 
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="name_en">{{ __('models.title_en') }}</label>
+                                                <label for="name_en">{{ __('models.name_en') }}</label>
                                                 <input type="text" id="name_en" class="form-control" name="name_en" value="{{ old('name_en') }}" />
                                                 @error('name_en')
                                                     <span class="alert alert-danger">
@@ -77,29 +95,6 @@
                                                 <label for="location_en">{{ __('models.location_en') }}</label>
                                                 <textarea class="form-control" name="location_en" rows="3">{{ old('location_en') }}</textarea>
                                                 @error('location_en')
-                                                    <span class="alert alert-danger">
-                                                        <small class="errorTxt">{{ $message }}</small>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="services_ar">{{ __('models.services_ar') }}</label>
-                                                <textarea class="form-control" name="services_ar" rows="3">{{ old('services_ar') }}</textarea>
-                                                @error('services_ar')
-                                                    <span class="alert alert-danger">
-                                                        <small class="errorTxt">{{ $message }}</small>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="services_en">{{ __('models.services_en') }}</label>
-                                                <textarea class="form-control" name="services_en" rows="3">{{ old('services_en') }}</textarea>
-                                                @error('services_en')
                                                     <span class="alert alert-danger">
                                                         <small class="errorTxt">{{ $message }}</small>
                                                     </span>
@@ -154,11 +149,62 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="price">{{ __('models.price') }}</label>
+                                                <input type="text" id="price" class="form-control" name="price" value="{{ old('price') }}" />
+                                                @error('price')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="booked">{{ __('models.booked') }}</label>
+                                                <select class="form-control" name="booked">
+                                                    <option value="0" {{ old('booked') == 0 ? 'selected' : '' }}>No</option>
+                                                    <option value="1" {{ old('booked') == 1 ? 'selected' : '' }}>Yes</option>
+                                                </select>
+                                                @error('booked')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="avilable_from">{{ __('models.avilable_from') }}</label>
+                                                <input type="datetime-local" id="avilable_from" class="form-control" name="avilable_from" value="{{ old('avilable_from') }}" />
+                                                @error('avilable_from')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="avilable_to">{{ __('models.avilable_to') }}</label>
+                                                <input type="datetime-local" id="avilable_to" class="form-control" name="avilable_to" value="{{ old('avilable_to') }}" />
+                                                @error('avilable_to')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                               <!-- Image Upload Field -->
-                                              <div class="col-12">
+                                              <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="images">{{ __('models.images') }}</label>
-                                                    <input type="file" id="images" class="form-control" name="images[]" multiple required />
+                                                    <input type="file" id="images" class="form-control" name="images[]" multiple />
                                                     @error('images')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
@@ -171,7 +217,6 @@
                                                     @enderror
                                                 </div>
                                             </div>
-
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="lat">{{ __('models.lat') }}</label>
@@ -196,6 +241,8 @@
                                             </div>
                                         </div>
                                         <div id="map" style="height: 500px; width: 100%;"></div>
+                                  
+
 
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary mr-1">{{ __('models.save') }}</button>
@@ -212,6 +259,7 @@
     </div>
 </div>
 <!-- END: Content-->
+
 
     @push('js')
         <script src="{{ asset('dashboard/assets/js/custom/validation/serviceForm.js') }}"></script>

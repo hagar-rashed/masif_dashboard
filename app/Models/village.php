@@ -13,7 +13,8 @@ class village extends Model
         'name_en',
         'desc_ar',
         'desc_en',
-        'location',
+        'location_ar',
+        'location_en',
         'lat',
         'lng',
         'services_ar',
@@ -24,14 +25,30 @@ class village extends Model
     public function images(){
         return $this->hasMany(villageImages::class , 'village_id' , 'id');
     }
-    public function getNameAttribute()
-    {
-        return $this->{'name_' . app()->getLocale()};
-    }
+    // public function getNameAttribute()
+    // {
+    //     return $this->{'name_' . app()->getLocale()};
+    // }
 
-    public function getDescAttribute()
+    // public function getDescAttribute()
+    // {
+    //     return $this->{'desc_' . app()->getLocale()};
+    // }
+    // public function getLocationAttribute()
+    // {
+    //     return $this->{'location_' . app()->getLocale()};
+    // }
+
+    public function __get($key)
     {
-        return $this->{'desc_' . app()->getLocale()};
+        // Check if the requested attribute has an '_ar' and '_en' version
+        if (in_array($key, ['name', 'desc', 'location', 'services', 'owner_name'])) {
+            // Return the attribute based on the current locale
+            return $this->{$key . '_' . app()->getLocale()};
+        }
+
+        // Fallback to the parent __get method for other attributes
+        return parent::__get($key);
     }
 
 }

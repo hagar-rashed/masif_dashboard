@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\Dashboard\UnitController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -51,46 +52,53 @@ Route::middleware('localization')->group(function () {
 
         Route::get('/', 'DashboardController@home')->name('home');
 
-        Route::resource('categories', 'CategoryController');
+        // Route::resource('categories', 'CategoryController');
 
-        Route::resource('articles', 'ArticleController');
-        Route::post('/delete-image', 'ArticleController@deleteImage')->name('delete-image');
+        // Route::resource('articles', 'ArticleController');
+        // Route::post('/delete-image', 'ArticleController@deleteImage')->name('delete-image');
 
-        Route::resource('services', 'ServiceController');
+        // Route::resource('services', 'ServiceController');
 
-        Route::resource('values', 'ValueController');
-        Route::resource('vallages', 'VallageController');
+        // Route::resource('values', 'VillageController');
 
-        Route::resource('solutions', 'SolutionController');
+        // Route::resource('solutions', 'SolutionController');
 
         // Route::resource('brands', 'BrandController');
 
-        Route::resource('partners', 'PartnerController');
+        // Route::resource('partners', 'PartnerController');
 
-        Route::resource('clients', 'CustomerController');
-        Route::delete('delete-client/{id}', 'CustomerController@destroy')->name('clients.delete');
+        // Route::resource('clients', 'CustomerController');
+        // Route::delete('delete-client/{id}', 'CustomerController@destroy')->name('clients.delete');
 
-        Route::resource('jobs', 'JobVacancyController');
+        // Route::resource('jobs', 'JobVacancyController');
 
-        Route::resource('sectors', 'SectorController');
+        // Route::resource('sectors', 'SectorController');
 
-        Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
-        Route::patch('settings/update', 'SettingController@update')->name('settings.update');
+        // Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
+        // Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
-        Route::get('job-applications', 'JobApplicationController@index')->name('job-applications.index');
-        Route::delete('job-applications/{id}', 'JobApplicationController@deleteMsg')->name('job-applications.deleteMsg');
+        // Route::get('job-applications', 'JobApplicationController@index')->name('job-applications.index');
+        // Route::delete('job-applications/{id}', 'JobApplicationController@deleteMsg')->name('job-applications.deleteMsg');
 
-        Route::get('contacts', 'ContactController@index')->name('contacts.index');
-        Route::get('contacts/{id}', 'ContactController@show')->name('contacts.show');
-        Route::get('contacts/{id}/reply', 'ContactController@showReplyForm')->name('contacts.reply');
-        Route::post('contacts/send-reply', 'ContactController@sendReply')->name('contacts.sendReply');
-        Route::delete('contacts/{id}', 'ContactController@deleteMsg')->name('contacts.deleteMsg');
+        // Route::get('contacts', 'ContactController@index')->name('contacts.index');
+        // Route::get('contacts/{id}', 'ContactController@show')->name('contacts.show');
+        // Route::get('contacts/{id}/reply', 'ContactController@showReplyForm')->name('contacts.reply');
+        // Route::post('contacts/send-reply', 'ContactController@sendReply')->name('contacts.sendReply');
+        // Route::delete('contacts/{id}', 'ContactController@deleteMsg')->name('contacts.deleteMsg');
 
-        Route::get('mail-list', 'MailListController@index')->name('mail.index');
-        Route::delete('mail-list/{id}', 'MailListController@deleteMail')->name('mail.deleteMail');
+        // Route::get('mail-list', 'MailListController@index')->name('mail.index');
+        // Route::delete('mail-list/{id}', 'MailListController@deleteMail')->name('mail.deleteMail');
 
         Route::get('profile', 'ProfileController@getProfile')->name('profile');
         Route::post('update-profile', 'ProfileController@updateProfile')->name('update_profile');
+
+            //villages
+        Route::resource('villages', 'VillageController');
+
+        //units
+        Route::resource('units', 'UnitController');
+
+
     });
 
 

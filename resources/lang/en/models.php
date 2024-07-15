@@ -196,7 +196,7 @@ return [
     'location'=>'العنوان',
 'lat'=>'اللوكيشن',
 'lng'=>'اللوكيشن',
-
+'owner_name'=>' owner name',
 'services_en'=>'services',
 
 'owner_name_en'=>'owner name',
@@ -229,6 +229,27 @@ return [
     'why_we_do_ar'  => 'Why We Are Doing That (in Arabic)',
     'why_we_do_en'  => 'Why We Are Doing That (in English)',
     'map_image'     => 'Map Image',
-    'images'        => 'Images'
+    'images'        => 'Images',
+    'available_from'        => 'Available from',
+    'available_to'        => 'Available to',
+    'booked'        => 'booked',
+    'price'        => 'price',
+    'owner_name'        => 'Owner name',
+    'units'        => 'units',
+    'add_n_unit'        => 'add new unit',
+    'village'        => 'village',
+    'location_ar'        => 'location arabic',
+    'location_en'        => 'location english',
+    'avilable_from'        => 'avilable from',
+    'avilable_to'        => 'avilable to',
+    'owner_name_en'        => 'owner name english',
+    'owner_name_ar'        => 'owner name arabic',
+    'unit_images'        => 'unit images',
+    'services_en'        => 'services english',
+    'services_ar'        => 'services arabic',
+    'village_images'        => 'village images',
+
+
+
 
 ];

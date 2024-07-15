@@ -10,20 +10,15 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name_ar',
-        'name_en',
-        'desc_ar',
-        'desc_en',
-        'image',
+        'name',
+        'desc',
+        'price',
+        'village_id',
     ];
 
-    public function getNameAttribute()
+    // Define the relationship with the Village model
+    public function village()
     {
-        return $this->{'name_' . app()->getLocale()};
-    }
-
-    public function getDescAttribute()
-    {
-        return $this->{'desc_' . app()->getLocale()};
+        return $this->belongsTo(Village::class);
     }
 }

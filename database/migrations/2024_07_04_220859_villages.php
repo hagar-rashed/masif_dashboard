@@ -15,11 +15,12 @@ class Villages extends Migration
     {
         Schema::create('villages', function (Blueprint $table) {
             $table->id();
-            $table->string('location');
+            $table->string('location_ar');
+            $table->string('location_en');
             $table->string('lat');
             $table->string('lng');
-            $table->string('name-ar');
-            $table->string('name-en');
+            $table->string('name_ar');
+            $table->string('name_en');
             $table->string('services_ar');
             $table->string('services_en');
             $table->string('owner_name_ar');

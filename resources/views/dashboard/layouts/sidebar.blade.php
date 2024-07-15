@@ -22,60 +22,75 @@
         </ul>
 
         {{-- categories --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.categories.index', 'admin.categories.create', 'admin.categories.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.categories.index') }}"><i
                         class="fa-solid fa-bookmark"></i><span
                         class="menu-title text-truncate">{{ __('models.categories') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- articles --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.articles.index', 'admin.articles.create', 'admin.articles.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.articles.index') }}"><i
                         class="fa-solid fa-newspaper"></i><span
                         class="menu-title text-truncate">{{ __('models.news') }}</span></a>
             </li>
+        </ul> --}}
+        {{-- villages --}}
+
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.villages.index', 'admin.villages.create', 'admin.villages.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.villages.index') }}">
+                    <i class="fa-solid fa-arrow-up-from-water-pump"></i>
+                    <span class="menu-title text-truncate">{{ __('models.values') }}</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li
+                class="nav-item {{ areActiveRoutes(['admin.units.index', 'admin.units.create', 'admin.units.edit']) }}">
+                <a class="d-flex align-items-center" href="{{ route('admin.units.index') }}">
+                    <i class="fa-solid fa-arrow-up-from-water-pump"></i>
+                    <span class="menu-title text-truncate">{{ __('models.units') }}</span>
+                </a>
+            </li>
         </ul>
 
         {{-- services --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.services.index', 'admin.services.create', 'admin.services.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.services.index') }}"><i
                         class="fa-solid fa-star"></i><span
                         class="menu-title text-truncate">{{ __('models.services') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- values --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.values.index', 'admin.values.create', 'admin.values.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.values.index') }}"><i class="fa-solid fa-arrow-up-from-water-pump"></i><span
                         class="menu-title text-truncate">{{ __('models.values') }}</span></a>
             </li>
-        </ul>
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-    <li class="nav-item {{ areActiveRoutes(['admin.vallages.index', 'admin.vallages.create', 'admin.vallages.edit']) }}">
-        <a class="d-flex align-items-center" href="{{ route('admin.vallages.index') }}">
-            <i class="fa-solid fa-arrow-up-from-water-pump"></i>
-            <span class="menu-title text-truncate">{{ __('models.values') }}</span>
-        </a>
-    </li>
-</ul>
+        </ul> --}}
+
+
         {{-- solutions --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.solutions.index', 'admin.solutions.create', 'admin.solutions.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.solutions.index') }}"><i
                         class="fa-solid fa-lightbulb"></i><span
                         class="menu-title text-truncate">{{ __('models.solutions') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- brands --}}
         {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
@@ -88,37 +103,37 @@
         </ul> --}}
 
         {{-- partners --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.partners.index', 'admin.partners.create', 'admin.partners.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.partners.index') }}"><i
                         class="fa-solid fa-handshake"></i><span
                         class="menu-title text-truncate">{{ __('models.partners') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- customers --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.clients.index', 'admin.clients.create', 'admin.clients.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.clients.index') }}"><i
                         class="fa-solid fa-user-tie"></i><span
                         class="menu-title text-truncate">{{ __('models.clients') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- jobs --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item {{ areActiveRoutes(['admin.jobs.index', 'admin.jobs.create', 'admin.jobs.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.jobs.index') }}">
                     <i class="fa-solid fa-suitcase"></i><span
                         class="menu-title text-truncate">{{ __('models.jobs') }}</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- job applications --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.job-applications.index', 'admin.job-applications.create', 'admin.job-applications.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.job-applications.index') }}">
@@ -126,10 +141,10 @@
                         class="menu-title text-truncate">{{ __('models.job_applications') }}</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- sectors --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li
                 class="nav-item {{ areActiveRoutes(['admin.sectors.index', 'admin.sectors.create', 'admin.sectors.edit']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.sectors.index') }}">
@@ -137,7 +152,7 @@
                         class="menu-title text-truncate">{{ __('models.sectors') }}</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- videos --}}
         {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
@@ -149,21 +164,21 @@
         </ul> --}}
 
         {{-- contacts --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item {{ areActiveRoutes(['admin.contacts.index', 'admin.contacts.show']) }}">
                 <a class="d-flex align-items-center" href="{{ route('admin.contacts.index') }}"><i
                         class="fa-solid fa-inbox"></i><span
                         class="menu-title text-truncate">{{ __('models.contact_msgs') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- settings --}}
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        {{-- <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item {{ isActiveRoute('admin.settings.edit') }}"><a class="d-flex align-items-center"
                     href="{{ route('admin.settings.edit') }}"><i class="fa-solid fa-gear"></i><span
                         class="menu-title text-truncate">{{ __('models.settings') }}</span></a>
             </li>
-        </ul>
+        </ul> --}}
 
     </div>
 </div>

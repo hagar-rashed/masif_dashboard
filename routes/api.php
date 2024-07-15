@@ -1,5 +1,9 @@
 <?php
 
+
+
+use App\Http\Controllers\Api\Dashboard\ServiceController;
+use App\Http\Controllers\Api\Site\ServiceController as SiteServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +45,25 @@ Route::namespace('Api')->group(function () {
 
     // Videos Routes
     Route::get('videos', 'VideoController@index');
+
+
 });
+
+    // services Route dashboard
+    Route::get('services', [ServiceController::class,'index']);
+
+    Route::post('services', [ServiceController::class,'store']);
+
+    Route::get('services/{id}', [ServiceController::class,'show']);
+
+    Route::put('services/{id}', [ServiceController::class,'update']);
+
+    Route::delete('services/{id}', [ServiceController::class,'destroy']);
+
+
+    // services Route site
+Route::get('site/services/{village_id}', [SiteServiceController::class, 'getByVillage']);
+
+Route::get('site/services/{id}', [SiteServiceController::class,'show']);
+
+Route::get('site/services', [SiteServiceController::class,'index']);
