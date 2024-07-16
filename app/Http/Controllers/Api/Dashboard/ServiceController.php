@@ -23,8 +23,11 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'desc' => 'nullable|string',
+            'desc_ar' => 'nullable|string',
+            'desc_en' => 'nullable|string',
             'price' => 'required|numeric',
             'village_id' => 'required|exists:villages,id',
         ]);
@@ -60,8 +63,10 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name' => 'sometimes|required|string|max:255',
-            'desc' => 'nullable|string',
+            'name_ar' => 'sometimes|required|string|max:255',
+            'name_en' => 'sometimes|required|string|max:255',
+            'desc_ar' => 'nullable|string',
+            'desc_en' => 'nullable|string',
             'price' => 'sometimes|required|numeric',
             'village_id' => 'sometimes|required|exists:villages,id',
         ]);

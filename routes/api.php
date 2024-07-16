@@ -1,9 +1,11 @@
 <?php
 
-
-
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Dashboard\ServiceController;
 use App\Http\Controllers\Api\Site\ServiceController as SiteServiceController;
+use App\Http\Controllers\Api\SocialAuthController;
+use App\Http\Controllers\Dashboard\OfferController;
+use App\Http\Controllers\Api\Dashboard\VallageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,25 +47,50 @@ Route::namespace('Api')->group(function () {
 
     // Videos Routes
     Route::get('videos', 'VideoController@index');
-
-
 });
 
-    // services Route dashboard
-    Route::get('services', [ServiceController::class,'index']);
 
-    Route::post('services', [ServiceController::class,'store']);
-
-    Route::get('services/{id}', [ServiceController::class,'show']);
-
-    Route::put('services/{id}', [ServiceController::class,'update']);
-
-    Route::delete('services/{id}', [ServiceController::class,'destroy']);
+Route::post('/login', [AuthController::class, 'login_user']);
+Route::post('/register', [AuthController::class, 'register_user']);
 
 
-    // services Route site
+Route::get('auth/{facebook}', [SocialAuthController::class, 'redirectToFacebook']);
+Route::get('auth/{facebook}/callback', [SocialAuthController::class, 'handleFacebookCallback']);
+
+Route::get('auth/{twitter}', [SocialAuthController::class, 'redirectToTwitter']);
+Route::get('auth/{twitter}/callback', [SocialAuthController::class, 'handleTwitterCallback']);
+
+
+Route::group(['middleware' => ['auth:sanctum']], function (){
+    Route::post('/logout', [AuthController::class, 'logout_user']);
+    Route::get('/notifications', [OfferController::class, 'getNotifications']);
+    Route::post('/notifications/read', [OfferController::class, 'markAsRead']);
+});
+
+
+ // services Route dashboard
+ Route::get('services', [ServiceController::class,'index']);
+
+ Route::post('services', [ServiceController::class,'store']);
+
+ Route::get('services/{id}', [ServiceController::class,'show']);
+
+ Route::put('services/{id}', [ServiceController::class,'update']);
+
+ Route::delete('services/{id}', [ServiceController::class,'destroy']);
+
+
+ // services Route site
 Route::get('site/services/{village_id}', [SiteServiceController::class, 'getByVillage']);
 
 Route::get('site/services/{id}', [SiteServiceController::class,'show']);
 
 Route::get('site/services', [SiteServiceController::class,'index']);
+
+ // services villages site
+Route::get('villages', [VallageController::class,'index']);
+Route::post('villages', [VallageController::class,'store']);
+Route::get('villages/{id}', [VallageController::class,'show']);
+Route::put('villages/{id}', [VallageController::class,'update']);
+
+Route::delete('villages/{id}', [VallageController::class,'destroy']);

@@ -248,6 +248,10 @@ return [
     'services_en'        => 'services english',
     'services_ar'        => 'services arabic',
     'village_images'        => 'village images',
+    'end_date'        => 'end date',
+    'duration'        => 'duration',
+    'trips'        => 'trips',
+    'add_n_trip'        => 'add new trip',
 
 
 
