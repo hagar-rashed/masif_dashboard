@@ -16,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Route::resource('trips', TripController::class);
-Route::get('createTrip', [TripController::class, 'create'])->name('createTrip');
-Route::post('storeTrip', [TripController::class, 'store'])->name('storeTrip');
-Route::get('tripIndex', [TripController::class, 'index'])->name('tripIndex');
-Route::get('editTrip/{id}', [TripController::class, 'edit'])->name('editTrip');
-Route::put('updateTrip/{id}', [TripController::class, 'update'])->name('updateTrip');
-Route::delete('destroyTrip/{id}', [TripController::class, 'destroy'])->name('destroyTrip');
+Route::get('trips/create', [TripController::class, 'create'])->name('createTrip');
+Route::post('trips', [TripController::class, 'store'])->name('trips.store');
+Route::get('trips', [TripController::class, 'index'])->name('tripIndex');
+Route::get('trips/{id}', [TripController::class, 'edit'])->name('editTrip');
+Route::put('trips/{id}', [TripController::class, 'update'])->name('updateTrip');
+Route::delete('trips/{id}', [TripController::class, 'destroy'])->name('destroyTrip');
+
+
 
 Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');

@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form class="form form-vertical" id="createserviceForm"
-                                        action="{{ route('storeTrip') }}" method="POST"
+                                        action="{{ route('trips.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">

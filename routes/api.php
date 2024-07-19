@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TripController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,11 @@ Route::namespace('Api')->group(function () {
 
     // Videos Routes
     Route::get('videos', 'VideoController@index');
+
+    // Trips Routes
+    Route::get('/trips',[TripController::class, 'index']);
+    Route::post('/trips',[TripController::class, 'store']);
+    Route::get('/trips/{id}',[TripController::class, 'show']);
+    Route::put('/trips/{id}',[TripController::class, 'update']);
+    Route::delete('/trips/{id}',[TripController::class, 'destroy']);
 });

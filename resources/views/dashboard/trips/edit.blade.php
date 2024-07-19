@@ -48,7 +48,7 @@
                                                 <div class="form-group">
                                                     <label for="name">{{ __('models.title_ar') }}</label>
                                                     <input type="text" id="name_ar" class="form-control"
-                                                        name="name" value="{{ old('name_ar', $trip->name) }}" />
+                                                        name="name" value="{{ old('name_ar', $trip->location) }}" />
                                                     @error('name')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>

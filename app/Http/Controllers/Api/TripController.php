@@ -1,28 +1,31 @@
 <?php
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
 use App\Models\Trip;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 class TripController extends Controller
 {
-
-    private $column = [
-       'name',
-       'location',
-       'price',
-       'start_date',
-       'end_date',
-       'duration',
-       'desc',
-    ];
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $trips = Trip::get();
-        return view('dashboard.trips.index', compact('trips'));
+        return Trip::all();
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('dashboard.trips.create');
+ 
     }
 
     /**
@@ -33,9 +36,8 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only($this->column);
-        Trip::create($data);
-        return redirect('trips');
+        $trip = Trip::create($request->all());
+        return response()->json($trip, Response::HTTP_CREATED);
     }
 
     /**
@@ -46,7 +48,8 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        //
+       return Trip::findOrFail($id);
+
     }
 
     /**
@@ -57,8 +60,7 @@ class TripController extends Controller
      */
     public function edit($id)
     {
-        $trip = Trip::findOrFail($id);
-        return view('dashboard.trips.edit', compact('trip'));
+        //
     }
 
     /**
@@ -70,10 +72,13 @@ class TripController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only($this->column);
-        Trip::where('id',$id)->update($data);
-        return redirect('tripIndex');
-
+        $trip = Trip::find($id);
+        if ($trip) {
+            $trip->update($request->all());
+            return response()->json($trip, Response::HTTP_OK);
+        } else {
+            return response()->json(['message' => 'Trip not found'], Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
@@ -84,8 +89,12 @@ class TripController extends Controller
      */
     public function destroy($id)
     {
-      //  Trip::where("id",$id)->delete();
-      Trip::destroy($id);
-        return redirect('tripIndex');
+        $trip = Trip::find($id);
+        if ($trip) {
+            $trip->delete();
+            return response()->json(null, Response::HTTP_NO_CONTENT);
+        } else {
+            return response()->json(['message' => 'Trip not found'], Response::HTTP_NOT_FOUND);
+        }
     }
 }
