@@ -1,6 +1,8 @@
 <?php
 
-return [
+return [ 
+    'user_name'                 => 'USER_NAME',
+    'code'                      => 'CODE',
     'home'                      => 'Home',
     'about'                     => 'About the Author',
     'books'                     => 'Books and literature',
