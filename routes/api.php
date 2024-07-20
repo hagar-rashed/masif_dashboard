@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\OfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +46,31 @@ Route::namespace('Api')->group(function () {
 
     // Videos Routes
     Route::get('videos', 'VideoController@index');
+});
+
+ 
+Route::post('/sanctum/token', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+        'device_name' => 'required',
+    ]);
+ 
+    $user = User::where('email', $request->email)->first();
+ 
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
+    }
+ 
+    return $user->createToken($request->device_name)->plainTextToken;
+});
+
+
+// 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('notifications', [NotificationController::class, 'getSettings']);
+    Route::post('notifications', [NotificationController::class, 'updateSettings']);
+    
 });

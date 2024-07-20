@@ -45,4 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         
     ];
+    
+    public function getNotificationSettingsAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function setNotificationSettingsAttribute($value)
+    {
+        $this->attributes['notification_settings'] = json_encode($value);
+    }
 }
