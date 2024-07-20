@@ -43,39 +43,70 @@
                                             <div class="col-6">                                                
                                                 <div class="form-group">
                                                     <label for="name" class="form-label">{{ __('Name') }}</label>
-                                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="user_name" class="form-label">{{ __('User Name') }}</label>
-                                                    <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Enter User Name">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="email" class="form-label">{{ __('Email') }}</label>
-                                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password" class="form-label">{{ __('Password') }}</label>
-                                                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="code" class="form-label">{{ __('Code') }}</label>
-                                                    <input type="text" id="code" name="code" class="form-control" placeholder="Enter Code">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="formFile" class="form-label">{{ __('models.image') }}</label>
-                                                    <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile" name="image">
-                                                    @error('image')
+                                                    <input type="text" id="name" name="name" value="{{ old ('name') }}" class="form-control" placeholder="Enter Name">
+                                                    @error('name')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group prev">
-                                                    <img src="" style="width: 100px" class="img-thumbnail preview-formFile" alt="">
+                                                <div class="form-group">
+                                                    <label for="user_name" class="form-label">{{ __('User Name') }}</label>
+                                                    <input type="text" id="user_name" name="user_name" value="{{ old ('user_name') }}" class="form-control" placeholder="Enter User Name">
+                                                    @error('user_name')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email" class="form-label">{{ __('Email') }}</label>
+                                                    <input type="email" id="email" name="email" value="{{ old ('email') }}" class="form-control" placeholder="Enter Email">
+                                                    @error('email')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="password" class="form-label">{{ __('Password') }}</label>
+                                                  <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
+                                                   @error('password')
+                                                    <span class="alert alert-danger">
+                                                        <small class="errorTxt">{{ $message }}</small>
+                                                    </span>
+                                                   @enderror
+                                                </div>
+ 
+                                                <div class="form-group">
+                                                    <label for="code" class="form-label">{{ __('Code') }}</label>
+                                                    <input type="text" id="code" name="code" value="{{ old ('code') }}" class="form-control" placeholder="Enter Code">
+                                                    @error('code')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
+                                            <div class="col-6">
+                                                <!-- Image Field -->
+                                            <div class="form-group">
+                                                <label for="formFile" class="form-label">{{ __('models.image') }}</label>
+                                                <input class="form-control image" accept="image/png, image/jpeg" type="file" id="formFile" name="image">
+                                                @error('image')
+                                                <span class="alert alert-danger">
+                                                    <small class="errorTxt">{{ $message }}</small>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                                <div class="form-group prev">
+                                                    <img src="" style="width: 100px"
+                                                        class="img-thumbnail preview-formFile" alt="">
+                                                </div>
+                                            </div>
+
+                          
+               
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary mr-1">{{ __('models.save') }}</button>
                                             </div>
