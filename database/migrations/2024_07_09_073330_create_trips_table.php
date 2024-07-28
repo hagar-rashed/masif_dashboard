@@ -16,12 +16,14 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('location');
+            $table->string('from');
+            $table->string('to');
             $table->integer('price');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('duration');
-            $table->string('desc');
+            $table->text('desc');
+            $table->integer('passengers');
             $table->timestamps();
         });
     }

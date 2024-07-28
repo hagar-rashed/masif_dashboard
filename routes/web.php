@@ -1,10 +1,18 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripController ;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
+Route::get('trips/search', [SearchController::class, 'create']);
+Route::get('trips/searchResult', [SearchController::class, 'search'])->name('tripSearch');
+
+// Route::get('trips/search', function (Request $request) {
+//     return 'Hello World';
+// });
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +30,6 @@ Route::get('trips', [TripController::class, 'index'])->name('tripIndex');
 Route::get('trips/{id}', [TripController::class, 'edit'])->name('editTrip');
 Route::put('trips/{id}', [TripController::class, 'update'])->name('updateTrip');
 Route::delete('trips/{id}', [TripController::class, 'destroy'])->name('destroyTrip');
-
 
 
 Route::get('/clear-cache', function () {

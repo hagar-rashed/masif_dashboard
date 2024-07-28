@@ -7,12 +7,14 @@ class TripController extends Controller
 
     private $column = [
        'name',
-       'location',
+       'from',
+       'to',
        'price',
        'start_date',
        'end_date',
        'duration',
        'desc',
+       'passengers'
     ];
     public function index()
     {
@@ -72,7 +74,7 @@ class TripController extends Controller
     {
         $data = $request->only($this->column);
         Trip::where('id',$id)->update($data);
-        return redirect('tripIndex');
+        return redirect('trips');
 
     }
 
@@ -88,4 +90,6 @@ class TripController extends Controller
       Trip::destroy($id);
         return redirect('tripIndex');
     }
+
+
 }

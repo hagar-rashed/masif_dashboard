@@ -36,8 +36,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form class="form form-vertical" id="createserviceForm"
-                                        action="{{ route('trips.store') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                        action="{{ route('trips.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
 
@@ -47,18 +46,6 @@
                                                     <input type="text" id="name" class="form-control" name="name"
                                                         value="{{ old('name') }}" />
                                                     @error('name')
-                                                        <span class="alert alert-danger">
-                                                            <small class="errorTxt">{{ $message }}</small>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="location">مكان الرحلة</label>
-                                                    <input type="text" id="location" class="form-control"
-                                                        name="location" value="{{ old('location') }}" />
-                                                    @error('location')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
@@ -79,7 +66,32 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="start_date">تاريخ  بداية الرحلة</label>
+                                                    <label for="from">مكان الاقلاع</label>
+                                                    <input type="text" id="from" class="form-control"
+                                                        name="from" value="{{ old('from') }}" />
+                                                    @error('from')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="to">مكان الوصول</label>
+                                                    <input type="text" id="to" class="form-control"
+                                                        name="to" value="{{ old('to') }}" />
+                                                    @error('to')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="start_date">تاريخ بداية الرحلة</label>
                                                     <input type="date" id="start_date" class="form-control"
                                                         name="start_date" value="{{ old('start_date') }}" />
                                                     @error('start_date')
@@ -116,9 +128,21 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="desc">الوصف</label>
-                                                    <input type="text" id="desc" class="form-control" name="desc"
-                                                        value="{{ old('desc') }}" />
+                                                    <input type="text" id="desc" class="form-control"
+                                                        name="desc" value="{{ old('desc') }}" />
                                                     @error('desc')
+                                                        <span class="alert alert-danger">
+                                                            <small class="errorTxt">{{ $message }}</small>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="passengers">عدد الركاب</label>
+                                                    <input type="text" id="price" class="form-control" name="passengers"
+                                                        value="{{ old('passengers') }}" />
+                                                    @error('passengers')
                                                         <span class="alert alert-danger">
                                                             <small class="errorTxt">{{ $message }}</small>
                                                         </span>
